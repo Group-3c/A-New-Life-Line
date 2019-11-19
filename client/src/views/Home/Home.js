@@ -4,6 +4,8 @@ import '../../app.css';
 import './Home.css';
 import dashCalendar from '../../assets/tmpDashCalendar.png';
 
+const calendarEmbed = "https://calendar.google.com/calendar/embed?src=9gkad3t3of6mecr49itogciq0c%40group.calendar.google.com&ctz=America%2FNew_York";
+
 function Home() {
     return (
         <div className="App">
@@ -39,7 +41,7 @@ function Home() {
             </div>
 
             <div className='col2'>
-              <img src={ dashCalendar } className='dashCalendar' alt="Dashboard calendar" />
+            <iframe src={calendarEmbed} width="280" height="280" frameborder="0" scrolling="no"/>
               <div id='tasks'>
                 <h3> Tasks </h3>
                 <ul>
