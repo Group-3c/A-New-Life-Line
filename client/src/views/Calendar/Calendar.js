@@ -10,7 +10,7 @@ function Calendar() {
             <div>
             <header className="App-header">
                 Calendar
-                <iframe src={calendarEmbed} width="1200" height="800" frameborder="0" scrolling="no"></iframe>
+                <iframe src={calendarEmbed} width="1200" height="800" frameBorder="0" scrolling="no"/>
             </header>
         </div>
         </div>
