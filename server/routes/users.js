@@ -29,6 +29,7 @@ router.post('/register', async function(req, res){
     const username = req.body.username;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
+    const permission = "user";
 
     let query = {username:username};
     await User.findOne(query, function(err, user){
@@ -67,7 +68,8 @@ router.post('/register', async function(req, res){
                 name:name,
                 email:email,
                 username:username,
-                password:password
+                password:password,
+                permission:permission
             });
         
             newUser.save(function(err){
