@@ -7,6 +7,7 @@ import Calendar from "./views/Calendar/Calendar"
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
 import Register from "./views/Register/Register"
+import Login from "./views/Login/Login"
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/Forum" component={Forum} />
         <Route exact path="/Calendar" component={Calendar} />
         <Route exact path="/Register" component={Register} />
+        <Route exact path="/Login" component={Login} />
         <Route exact path="/">
           <Redirect to="/Home" />
         </Route>

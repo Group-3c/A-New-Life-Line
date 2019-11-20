@@ -31,6 +31,18 @@ router.post('/register', async function(req, res){
     const confirmPassword = req.body.confirmPassword;
     const permission = "user";
 
+    if (name === '')
+    {
+        add = false;
+        res.write("Name must not be empty\n");
+    }
+
+    if (username === '')
+    {
+        add = false;
+        res.write("Userame must not be empty\n");
+    }
+
     let query = {username:username};
     await User.findOne(query, function(err, user){
         if (user) {
@@ -76,12 +88,10 @@ router.post('/register', async function(req, res){
                 if(err){
                   console.log(err);
                   return;
-                } else {
-                  res.redirect('/users/login');
                 }
             });
+            res.send('Added');
         } else {
-            res.write("Not added");
             res.end();
         }        
     }, 500);
