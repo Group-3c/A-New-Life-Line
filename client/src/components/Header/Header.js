@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import '../../app.css';
 import './Header.css';
 import profileIcon from '../../assets/tmpProfileIcon.png';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
     return (
       <div className='topnav'>
           {/* Logo */}
           <Link id="logo-link" to="/">
-              <img className="topnav-logo" src={ "/tmpLogo.png" } alt="Site logo" />
+              <img className="topnav-logo" src={ logo } alt="Site logo" />
           </Link>
 
           {/* Page Links */}

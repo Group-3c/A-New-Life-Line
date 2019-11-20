@@ -6,17 +6,26 @@
     height: 40vmin;
 }
 
-.App-header {
-    background-color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: black;
-}
-
 .App-link {
     color: #09d3ac;
+}
+
+.col1 {
+  float: left;
+  width: 40%;
+}
+.col2{
+  float: right;
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.admin-element {
+  display: block;
 }
