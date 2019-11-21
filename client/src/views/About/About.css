@@ -10,17 +10,17 @@
     color: #09d3ac;
 }
 
-.col1 {
+.col1About {
   float: left;
   width: 40%;
 }
-.col2{
+.col2About{
   float: right;
   width: 60%;
 }
 
 /* Clear floats after the columns */
-.row:after {
+.rowAbout:after {
   content: "";
   display: table;
   clear: both;
@@ -28,4 +28,24 @@
 
 .admin-element {
   display: block;
+  margin-left: 35%;
+  margin-top: 20px;
+  background-color: #9A8F97;
+  border: none;
+  padding: 10px 24px;
+  text-decoration: none;
+  font-size: 14px;
+}
+.admin-element:hover{
+  background-color: #7F767C;
+}
+
+button {
+  color: #2A324B;
+}
+
+.socialmedia-logo {
+  margin-top: 25%;
+  margin-left: 10px;
+  margin-right: 10px;
 }

@@ -4,18 +4,19 @@ import '../../app.css';
 import './About.css';
 import facebookLogo from '../../assets/facebook.png';
 import linkedinLogo from '../../assets/linkedin.png';
+import tmpImage from '../../assets/image-placeholder.jpg';
 
 function About() {
     return (
       <div className="App">
-        <div className='row'>
-          <div className='col1'>
+        <div className='rowAbout'>
+          <div className='col1About'>
+            <img src = {tmpImage}></img>
             { /*Button that only shows when logged in as admin*/}
             <button type='button' className="admin-element">Edit Image</button>
           </div>
 
-          <div className='col2'>
-            Column 2
+          <div className='col2About'>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis nunc nec elit rutrum consectetur
               a a enim. Nulla vel lobortis est. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
@@ -25,9 +26,9 @@ function About() {
             </p>
             <button type='button' className="admin-element">Edit Text</button>
             <div id="social-media">
-              <a href="www.facebook.com"><img src = {facebookLogo} alt="facebook logo"
+              <a href="https://www.facebook.com/" target="_blank"><img src = {facebookLogo} alt="facebook logo"
                className="socialmedia-logo"></img></a>
-              <a href="www.linkedin.com"><img src = {linkedinLogo} alt="linkedIn logo"
+              <a href="https://www.linkedin.com" target="_blank"><img src = {linkedinLogo} alt="linkedIn logo"
                className="socialmedia-logo"></img></a>
             </div>
           </div>

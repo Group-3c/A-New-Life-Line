@@ -1,6 +1,6 @@
 .col1 {
   float: left;
-  width: 80%;
+  width: 78%;
 }
 
 /* Clear floats after the columns */
@@ -28,6 +28,10 @@ button {
 
 #fresh-out-button:hover {
   background-color: #7F767C;
+}
+
+#calendarEmbed {
+  margin-top: 20px;
 }
 
 

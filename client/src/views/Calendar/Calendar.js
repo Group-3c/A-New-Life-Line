@@ -6,10 +6,10 @@ import './Calendar.css';
 const calendarEmbed = "https://calendar.google.com/calendar/embed?src=9gkad3t3of6mecr49itogciq0c%40group.calendar.google.com&ctz=America%2FNew_York";
 
 class Calendar extends React.Component {
-    
+
 constructor(props) {
     super(props);
-    this.state = {name: '', 
+    this.state = {name: '',
     month: '',
     date: '',
     type: '',
@@ -27,7 +27,7 @@ handleSubmit(event) {
     alert('Your event has been submitted! \n\nEvent name: ' + this.state.name
     + " \nEvent Date: " + this.state.month + "/" + this.state.date
     + " \nEvent Type: " + this.state.type
-    + " \nEvent Description: " + this.state.description 
+    + " \nEvent Description: " + this.state.description
     );
     event.preventDefault();
     }
@@ -36,7 +36,7 @@ handleSubmit(event) {
     return (
         <div className="App">
             <div>
-                <header className="App-header">Calendar
+                <header className="App-header">
                     <iframe src={calendarEmbed} width="1200" height="800" frameborder="0" scrolling="no"/>
                 </header>
 
@@ -75,10 +75,10 @@ handleSubmit(event) {
                                         onChange={this.handleChange}
                                         />
                             </div>
-                                
+
                             <div className="column3">
                                 <label for="eventtype">Event Type</label>
-                                    <select id="eventtype" 
+                                    <select id="eventtype"
                                             class="field2"
                                             name="type"
                                             onChange={this.handleChange}
@@ -99,7 +99,7 @@ handleSubmit(event) {
                                 name="description"
                                 onChange={this.handleChange}
                                 />
-                        
+
                         <input type="submit" value="Submit"/>
                     </form>
                 </div>

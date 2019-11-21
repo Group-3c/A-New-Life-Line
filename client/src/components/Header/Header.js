@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../app.css';
 import './Header.css';
-import profileIcon from '../../assets/tmpProfileIcon.png';
+import profileIcon from '../../assets/user.png';
 import logo from '../../assets/logo.png';
 
 const Header = () => {
