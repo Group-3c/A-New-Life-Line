@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 let User = require('../models/users');
 
@@ -103,13 +104,15 @@ router.post('/login', function(req,res){
     const password = req.body.password;
 
     let query = {username:username};
+    let token = '';
     User.findOne(query, function(err, user){
         if(err) throw err;
         if(!user){
             res.send({message: 'No user found'});
         } else {
             if (password === user.password){
-                res.send({message: 'Login'});
+                token = jwt.sign({user:user}, "SECRET", {expiresIn: "1h"});
+                res.send({message: 'Login', token: token});
             } else {
                 res.send({message: 'Incorrect Password'});
             }

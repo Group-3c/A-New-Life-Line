@@ -8,6 +8,8 @@ import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
 import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
+import AuthRoute from "./components/AuthRoute"
+import 'semantic-ui-css/semantic.min.css'
 
 
 const App = () => {
@@ -15,15 +17,17 @@ const App = () => {
     <div>
       <Header />
       <Switch>
-        <Route exact path="/Home" component={Home} />
-        <Route exact path="/About" component={About} />
-        <Route exact path="/Forum" component={Forum} />
-        <Route exact path="/Calendar" component={Calendar} />
         <Route exact path="/Register" component={Register} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/">
           <Redirect to="/Home" />
         </Route>
+        <AuthRoute>
+          <Route exact path="/Home" component={Home} />
+          <Route exact path="/About" component={About} />
+          <Route exact path="/Calendar" component={Calendar} />
+          <Route exact path="/Forum" component={Forum} />
+        </AuthRoute>
         <Route component={NotFound}/>
 
       </Switch>

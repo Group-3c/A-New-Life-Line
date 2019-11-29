@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import profileIcon from '../../assets/tmpProfileIcon.png';
+import {Button} from 'semantic-ui-react';
 
 const Header = () => {
     return (
@@ -21,6 +22,10 @@ const Header = () => {
             {/* Profile Icon */}
             <div className="topnav-profile">
                 <img src={profileIcon} alt="profile icon"></img>
+                <Button floated="right" onClick={() => {
+                    localStorage.removeItem('jwtoken');
+                    window.location.reload();
+                }}>Logout</Button>
             </div>
         </div>
     )
