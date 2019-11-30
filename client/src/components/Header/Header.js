@@ -22,7 +22,7 @@ const Header = () => {
           </div>
 
           {/* Profile Icon */}
-          <div className="topnav-profile">
+          <div>
               <Link to="/Profile"><img src={profileIcon} alt="profile icon" className="topnav-profile"></img></Link>
           </div>
       </div>
