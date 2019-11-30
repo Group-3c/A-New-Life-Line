@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Home.css';
@@ -11,30 +12,24 @@ function Home() {
         <div className="App">
           <div className='row'>
             <div className='col1'>
-              <button type="button" id='fresh-out-button'> Fresh Out? </button>
+              <Link to="/FreshOut"><button type="button" id='fresh-out-button'> Fresh Out? </button></Link>
 
               <div class="dropdown">
                 <button class="dropbutton">Paradigm Shift</button>
                 <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+                  <Link to="/AboutParadigmShift"><p>About</p></Link>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropbutton">Skill Building</button>
                 <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+                  <Link to="/AboutSkillBuilding"><p>About</p></Link>
                 </div>
               </div>
               <div class="dropdown">
                 <button class="dropbutton">Entrepeneurship</button>
                 <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+                  <Link to="/AboutEntrepeneurship"><p>About</p></Link>
                 </div>
               </div>
 
