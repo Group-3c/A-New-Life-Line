@@ -4,14 +4,15 @@ import '../../app.css';
 import './Header.css';
 import profileIcon from '../../assets/tmpProfileIcon.png';
 import {Button} from 'semantic-ui-react';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
     return (
       <div className='topnav'>
-            {/* Logo */}
-            <Link id="logo-link" to="/">
-                <img className="topnav-logo" src={ "/tmpLogo.png" } alt="Site logo" />
-            </Link>
+          {/* Logo */}
+          <Link id="logo-link" to="/">
+              <img className="topnav-logo" src={ logo } alt="Site logo" />
+          </Link>
 
             {/* Page Links */}
             <div className="topnav-right">

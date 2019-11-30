@@ -1,5 +1,5 @@
 #donate-button {
-  background-color: #738185;
+  background-color: #C4D5E3;
   border: none;
   color: black;
   padding: 15px 32px;
@@ -10,12 +10,13 @@
 
 }
 #donate-button:hover {
-  background-color: #8fa1a6;
+  background-color: #B1C7DA;
+  text-decoration: none;
 }
 
 .footernav {
   display: block;
-  background-color: #fff0a6;
+  background-color: #9A8F97;
   height: 80px;
   left: 0;
   bottom: 0;
