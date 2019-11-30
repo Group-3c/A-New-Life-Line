@@ -4,7 +4,8 @@ const path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     exampleRouter = require('../routes/examples.server.routes'),
-    users = require('../routes/users');
+    users = require('../routes/users'),
+    cors = require('cors');
 
 module.exports.init = () => {
     /* 
@@ -40,6 +41,9 @@ module.exports.init = () => {
     }
 
     // new code
+    app.use(cors({
+        origin: 'http://localhost:3000'
+    }))
 
     app.use('/users', users);
 
