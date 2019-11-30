@@ -9,12 +9,14 @@ const Header = () => {
     return (
       <div className='topnav'>
           {/* Logo */}
-          <Link id="logo-link" to="/">
-              <img className="topnav-logo" src={ logo } alt="Site logo" />
-          </Link>
+          <div className="topnav-logo">
+            <Link id="logo-link" to="/">
+                <img src={ logo } alt="Site logo" />
+            </Link>
+          </div>
 
           {/* Page Links */}
-          <div className="topnav-right">
+          <div className="topnav-pages">
               <Link className="topnav-link" to="/About" style={{ textDecoration: 'none' }}>About</Link>
               <Link className="topnav-link" to="/Forum" style={{ textDecoration: 'none' }}>Forum</Link>
               <Link className="topnav-link" to="/Calendar" style={{ textDecoration: 'none' }}>Calendar</Link>
@@ -22,8 +24,9 @@ const Header = () => {
           </div>
 
           {/* Profile Icon */}
-          <div>
-              <Link to="/Profile"><img src={profileIcon} alt="profile icon" className="topnav-profile"></img></Link>
+          <div className="topnav-profile">
+              <Link to="/Profile"><img src={profileIcon} alt="profile icon">
+                </img></Link>
           </div>
       </div>
     )

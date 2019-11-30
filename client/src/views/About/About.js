@@ -13,18 +13,18 @@ function About() {
           <div className='col1About'>
             <img src = {tmpImage}></img>
             { /*Button that only shows when logged in as admin*/}
-            <button type='button' className="admin-element">Edit Image</button>
+            <button type='button' className="admin-element" id="image-button">Edit Image</button>
           </div>
 
           <div className='col2About'>
-            <p>
+            <p id="about-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis nunc nec elit rutrum consectetur
               a a enim. Nulla vel lobortis est. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
               per inceptos himenaeos. Vestibulum et libero turpis. Nulla facilisi. Sed viverra faucibus velit, ac
               dapibus risus dictum eget. Proin vel aliquam elit, id porttitor tellus. Quisque dolor urna, feugiat
               nec tristique sit amet, tempus ac ipsum.
             </p>
-            <button type='button' className="admin-element">Edit Text</button>
+            <button type='button' className="admin-element" id="about-button">Edit Text</button>
             <div id="social-media">
               <a href="https://www.facebook.com/" target="_blank"><img src = {facebookLogo} alt="facebook logo"
                className="socialmedia-logo"></img></a>

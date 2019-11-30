@@ -1,0 +1,37 @@
+#donate-text {
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5%;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+#donate-text-button {
+  margin-left: 46%;
+  margin-bottom: 10px;
+}
+
+.donate-button {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.donate-link {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  color: black;
+}
+
+.donate-link:hover {
+  background-color: gray;
+  text-decoration: none;
+  color: black;
+}
+
+#donate-link-button {
+  margin-left: 46%;
+  margin-top: 20px;
+}
