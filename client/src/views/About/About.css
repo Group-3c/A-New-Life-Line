@@ -26,14 +26,6 @@
   clear: both;
 }
 
-.admin-element {
-  display: block;
-  background-color: #9A8F97;
-  border: none;
-  padding: 10px 24px;
-  text-decoration: none;
-  font-size: 14px;
-}
 #about-button {
   margin-left: 35%;
   margin-top: 20px;
@@ -41,9 +33,6 @@
 #image-button {
   margin-left: 35%;
   margin-top: 20px;
-}
-.admin-element:hover{
-  background-color: #7F767C;
 }
 
 button {

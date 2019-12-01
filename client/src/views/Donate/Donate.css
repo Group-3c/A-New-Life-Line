@@ -17,18 +17,19 @@
 }
 
 .donate-link {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  color: black;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #8f9ecc;
+  color: white;
+  font-size: 24px;
 }
 
 .donate-link:hover {
-  background-color: gray;
+  background-color: #a8b6e3;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 #donate-link-button {
