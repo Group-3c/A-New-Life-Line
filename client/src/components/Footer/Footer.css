@@ -16,7 +16,7 @@
 
 .footernav {
   display: block;
-  background-color: #9A8F97;
+  background-color: #0f1147;
   height: 80px;
   left: 0;
   bottom: 0;
@@ -30,10 +30,12 @@
 .footer-left {
   display: inline;
   margin-left: 10px;
+  color: white;
 }
 .footer-right {
   display: inline;
   float: right;
   margin-top: 3%;
   margin-right: 10px;
+  color: white;
 }

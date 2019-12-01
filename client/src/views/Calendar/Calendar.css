@@ -1,12 +1,12 @@
 .container {
     border-radius: 5px;
-    background-color:rgb(190, 192, 194);
+    background-color:#a8b6e3;
     padding: 30px;
 }
 
 input[type=text], select, textarea {
     width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
+    padding: 12px; /* Some padding */
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place */
