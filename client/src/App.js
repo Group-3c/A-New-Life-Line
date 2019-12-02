@@ -19,6 +19,7 @@ import './app.css';
 import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
 import AuthRoute from "./components/AuthRoute"
+import 'semantic-ui-css/semantic.min.css'
 
 
 const App = () => {
