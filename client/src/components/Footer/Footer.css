@@ -6,7 +6,6 @@
   text-decoration: none;
   display: block;
   font-size: 16px;
-  margin: auto;
 
 }
 #donate-button:hover {
@@ -25,7 +24,7 @@
 .buttonDiv {
   margin-top: 20px;
   display: inline-block;
-  margin-left: 43%;
+  margin-left: 42.5%;
 }
 .footer-left {
   display: inline;

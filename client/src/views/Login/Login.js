@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Login.css';
+import backgroundImg from '../../assets/background-img.jpg';
 
 class Login extends React.Component{
     constructor(props){
@@ -39,15 +42,23 @@ class Login extends React.Component{
         const {username, password} = this.state;
 
         return(
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <div>
+            <div id="login-page">
+                <form onSubmit={this.submitHandler} id="login-form">
+                    <div id="login-title">
+                      Log In
+                    </div>
+                    <div id="username-field">
                         <input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
                     </div>
-                    <div>
+                    <div id="password-field">
                         <input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
                     </div>
-                    <button type="submit">Login</button>
+                    <div id="login-button">
+                      <button type="submit">Log In</button>
+                    </div>
+                    <div id="to-register">
+                      <Link to="/Register"><p>Not a member? Register</p></Link>
+                    </div>
                 </form>
             </div>
         );
