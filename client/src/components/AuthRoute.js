@@ -13,8 +13,11 @@ class AuthRoute extends React.Component{
     }
 
     async componentDidMount(){
-        if (localStorage.getItem('jwtoken')) {
+        try {
             await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
+        } catch(err) {
+            
+            this.props.history.push('/Login');
         }
 
         if (this.state.user === undefined){

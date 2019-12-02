@@ -29,10 +29,6 @@ const Header = () => {
           <div className="topnav-profile">
               <Link to="/Profile"><img src={profileIcon} alt="profile icon">
                 </img></Link>
-              <Button floated="right" onClick={() => {
-                    localStorage.removeItem('jwtoken');
-                    window.location.reload();
-                }}>Logout</Button>
           </div>
       </div>
                 
