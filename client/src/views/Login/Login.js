@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
+import { Button, Container, Form } from 'semantic-ui-react';
 
 class Login extends React.Component{
     constructor(props){
@@ -13,8 +14,14 @@ class Login extends React.Component{
     }
 
     componentDidMount(){
-        if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
-            this.props.history.push('/Home');
+
+        try {    
+            if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
+                this.props.history.push('/Home');
+            }       
+        } catch(err) {
+            
+            this.props.history.push('/Login');
         }
     }
 
@@ -46,17 +53,20 @@ class Login extends React.Component{
         const {username, password} = this.state;
 
         return(
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <div>
-                        <input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
-                    </div>
-                    <div>
-                        <input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
-                    </div>
-                    <button type="submit">Login</button>
-                </form>
-            </div>
+            <>
+            <br/>
+            <Container>
+                <Form onSubmit={this.submitHandler}>
+                    <Form.Group widths='equal'>
+                        <Form.Input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
+                    </Form.Group>
+                    <Form.Group widths='equal'>
+                        <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
+                    </Form.Group>
+                    <Button type="submit">Login</Button>
+                </Form>
+            </Container>
+            </>
         );
     }
 }

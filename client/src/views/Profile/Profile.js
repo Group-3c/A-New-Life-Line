@@ -27,7 +27,7 @@ class Profile extends React.Component {
     render() {
         return (
             <div className="App">
-                <br></br>
+                <br/>
                 {this.state.user &&
                 <Container>
                     <Grid columns={2} divided centered>
@@ -60,7 +60,7 @@ class Profile extends React.Component {
                     </Grid>
                 </Container>
                 }
-                <br></br>
+                <br />
                 {(this.state.user && this.state.list && this.state.user.permission) === 'admin' &&
                 <Container>
                     <Table celled>
@@ -69,19 +69,27 @@ class Profile extends React.Component {
                             <Table.HeaderCell>Email</Table.HeaderCell>
                             <Table.HeaderCell>Username</Table.HeaderCell>
                             <Table.HeaderCell>Password</Table.HeaderCell>
+                            <Table.HeaderCell>Permission</Table.HeaderCell>
                         </Table.Row>
                     {this.state.list.map(account => {
-                        return(
-                        <Table.Row>
-                            <Table.Cell>{account.name}</Table.Cell>
-                            <Table.Cell>{account.email}</Table.Cell>
-                            <Table.Cell>{account.username}</Table.Cell>
-                            <Table.Cell>{account.password}</Table.Cell>
-                        </Table.Row>
-                    )})}
+                        if(account.permission !== 'admin'){
+                            return(
+                            <Table.Row>
+                                <Table.Cell>{account.name}</Table.Cell>
+                                <Table.Cell>{account.email}</Table.Cell>
+                                <Table.Cell>{account.username}</Table.Cell>
+                                <Table.Cell>{account.password}</Table.Cell>
+                                <Table.Cell>
+                                    {account.permission}
+                                    <Button floated="right">Switch</Button>
+                                </Table.Cell>
+                            </Table.Row>)
+                        }
+                    })}
                     </Table>
                 </Container>
                 }
+                <br/>
             </div>
         );
    }
