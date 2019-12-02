@@ -39,10 +39,8 @@ const App = () => {
             <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
             <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
             <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
-            <Route exact path="/VideoChatJoin" component={VideoChatJoin} />
-            <Route exact path="/VideoChatHost" component={VideoChatHost} />
-            <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Forum" component={Forum} />
+            <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Donate" component={Donate} />
             <Route exact path="/Profile" component={Profile} />
           </AuthRoute>

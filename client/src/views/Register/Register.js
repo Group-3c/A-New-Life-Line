@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
+import jwt from 'jsonwebtoken';
+import { Button, Container, Form } from 'semantic-ui-react';
 
 class Register extends React.Component{
     constructor(props){
@@ -12,8 +14,19 @@ class Register extends React.Component{
             email: '',
             username: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            errors: ''
         };
+    }
+
+    componentDidMount(){
+        try {    
+            if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
+                this.props.history.push('/Home');
+            }       
+        } catch(err) {
+            this.props.history.push('/Register');
+        }
     }
 
     changeHandler = e => {
@@ -37,7 +50,8 @@ class Register extends React.Component{
                 {
                     this.props.history.push('/Home');
                 } else {
-                    console.log(res.data);
+                    this.setState({errors:res.data});
+                    console.log(this.state.errors);
                 }
             });
     }
@@ -46,34 +60,25 @@ class Register extends React.Component{
         const {name, email, username, password, confirmPassword} = this.state;
 
         return(
-            <div id="register-page">
-                <form onSubmit={this.submitHandler} id="register-form">
-                    <div id="register-title">
-                      Register
-                    </div>
-                    <div className="register-fields">
-                        <input type="text" name="name" placeholder="name" value={name} onChange={this.changeHandler}/>
-                    </div>
-                    <div className="register-fields">
-                        <input type="text" name="email" placeholder="email" value={email} onChange={this.changeHandler}/>
-                    </div>
-                    <div className="register-fields">
-                        <input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
-                    </div>
-                    <div className="password-fields">
-                        <input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
-                    </div>
-                    <div className="password-fields">
-                        <input type="password" name="confirmPassword" placeholder="Confirm password" value={confirmPassword} onChange={this.changeHandler}/>
-                    </div>
-                    <div id="register-button">
-                      <button type="submit">Register</button>
-                    </div>
-                    <div id="to-login">
-                      <Link to="/Login"><p>Already a member? Log In</p></Link>
-                    </div>
-                </form>
-            </div>
+            <>
+            <br/>
+            <Container>
+                <Form onSubmit={this.submitHandler}>
+                    <Form.Group widths='equal'>
+                        <Form.Input type="text" name="name" placeholder="name" value={name} onChange={this.changeHandler}/>
+                    </Form.Group>
+                    <Form.Group widths='equal'>
+                        <Form.Input type="text" name="email" placeholder="email" value={email} onChange={this.changeHandler}/>
+                        <Form.Input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
+                    </Form.Group>
+                    <Form.Group widths='equal'>
+                        <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
+                        <Form.Input type="password" name="confirmPassword" placeholder="confirmPassword" value={confirmPassword} onChange={this.changeHandler}/>
+                    </Form.Group>
+                    <Button type="submit">Register</Button>
+                </Form>
+            </Container>
+            </>
         );
     }
 }

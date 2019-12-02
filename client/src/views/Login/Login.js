@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 import backgroundImg from '../../assets/background-img.jpg';
+import jwt from 'jsonwebtoken';
+import { Button, Container, Form } from 'semantic-ui-react';
 
 class Login extends React.Component{
     constructor(props){
@@ -13,6 +15,18 @@ class Login extends React.Component{
             password: '',
             errors: ''
         };
+    }
+
+    componentDidMount(){
+
+        try {    
+            if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
+                this.props.history.push('/Home');
+            }       
+        } catch(err) {
+            
+            this.props.history.push('/Login');
+        }
     }
 
     changeHandler = e => {
@@ -43,25 +57,20 @@ class Login extends React.Component{
         const {username, password} = this.state;
 
         return(
-            <div id="login-page">
-                <form onSubmit={this.submitHandler} id="login-form">
-                    <div id="login-title">
-                      Log In
-                    </div>
-                    <div id="username-field">
-                        <input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
-                    </div>
-                    <div id="password-field">
-                        <input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
-                    </div>
-                    <div id="login-button">
-                      <button type="submit">Log In</button>
-                    </div>
-                    <div id="to-register">
-                      <Link to="/Register"><p>Not a member? Register</p></Link>
-                    </div>
-                </form>
-            </div>
+            <>
+            <br/>
+            <Container>
+                <Form onSubmit={this.submitHandler}>
+                    <Form.Group widths='equal'>
+                        <Form.Input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
+                    </Form.Group>
+                    <Form.Group widths='equal'>
+                        <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
+                    </Form.Group>
+                    <Button type="submit">Login</Button>
+                </Form>
+            </Container>
+            </>
         );
     }
 }
