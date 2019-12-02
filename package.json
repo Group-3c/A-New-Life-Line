@@ -18,23 +18,28 @@
     "url": "https://github.com/UFWebApps/React_Template_Repo.git"
   },
   "keywords": [],
-  "author": "Dakota Rennemann",
+  "author": "Group 3c",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "concurrently": "^4.1.2",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
     "mocha": "^6.2.2",
-    "mongoose": "^5.7.10",
+    "mongoose": "^5.7.13",
     "morgan": "^1.9.1",
     "node": "^12.13.0",
     "nodemon": "^1.19.4",
-    "react-bootstrap": "^1.0.0-beta.14",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "should": "^13.2.3",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "zoomus-jssdk": "^1.6.1"
   },
   "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme",
   "devDependencies": {
