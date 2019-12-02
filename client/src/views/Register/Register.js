@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Register.css';
 
 class Register extends React.Component{
     constructor(props){
@@ -44,24 +46,32 @@ class Register extends React.Component{
         const {name, email, username, password, confirmPassword} = this.state;
 
         return(
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <div>
+            <div id="register-page">
+                <form onSubmit={this.submitHandler} id="register-form">
+                    <div id="register-title">
+                      Register
+                    </div>
+                    <div className="register-fields">
                         <input type="text" name="name" placeholder="name" value={name} onChange={this.changeHandler}/>
                     </div>
-                    <div>
+                    <div className="register-fields">
                         <input type="text" name="email" placeholder="email" value={email} onChange={this.changeHandler}/>
                     </div>
-                    <div>
+                    <div className="register-fields">
                         <input type="text" name="username" placeholder="username" value={username} onChange={this.changeHandler}/>
                     </div>
-                    <div>
+                    <div className="password-fields">
                         <input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
                     </div>
-                    <div>
-                        <input type="password" name="confirmPassword" placeholder="confirmPassword" value={confirmPassword} onChange={this.changeHandler}/>
+                    <div className="password-fields">
+                        <input type="password" name="confirmPassword" placeholder="Confirm password" value={confirmPassword} onChange={this.changeHandler}/>
                     </div>
-                    <button type="submit">Register</button>
+                    <div id="register-button">
+                      <button type="submit">Register</button>
+                    </div>
+                    <div id="to-login">
+                      <Link to="/Login"><p>Already a member? Log In</p></Link>
+                    </div>
                 </form>
             </div>
         );

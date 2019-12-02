@@ -17,35 +17,43 @@ import './app.css';
 import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
 import AuthRoute from "./components/AuthRoute"
-import 'semantic-ui-css/semantic.min.css'
 
 
 const App = () => {
   return (
     <div className='page-container'>
-      <Header />
       <div className='content-wrap'>
         <Switch>
-          <Route exact path="/Home" component={Home} />
-          <Route exact path="/FreshOut" component={FreshOut} />
-          <Route exact path="/About" component={About} />
-          <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
-          <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
-          <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
-          <Route exact path="/Forum" component={Forum} />
-          <Route exact path="/Calendar" component={Calendar} />
-          <Route exact path="/Donate" component={Donate} />
-          <Route exact path="/Profile" component={Profile} />
-          <Route exact path="/Register" component={Register} />
-          <Route exact path="/Login" component={Login} />    
-          <Route exact path="/">
-            <Redirect to="/Home" />
-          </Route>
-          <AuthRoute>
+          {/*             ---Uncomment these to test the UI without having to log in---
+            <Header />
             <Route exact path="/Home" component={Home} />
+            <Route exact path="/FreshOut" component={FreshOut} />
             <Route exact path="/About" component={About} />
+            <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
+            <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
+            <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
             <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Forum" component={Forum} />
+            <Route exact path="/Donate" component={Donate} />
+            <Route exact path="/Profile" component={Profile} />
+          */}
+          <Route exact path="/Register" component={Register} />
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/">
+            <Redirect to="/Login" />
+          </Route>
+          <AuthRoute>
+            <Header />
+            <Route exact path="/Home" component={Home} />
+            <Route exact path="/FreshOut" component={FreshOut} />
+            <Route exact path="/About" component={About} />
+            <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
+            <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
+            <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
+            <Route exact path="/Calendar" component={Calendar} />
+            <Route exact path="/Forum" component={Forum} />
+            <Route exact path="/Donate" component={Donate} />
+            <Route exact path="/Profile" component={Profile} />
           </AuthRoute>
           <Route component={NotFound}/>
           </Switch>

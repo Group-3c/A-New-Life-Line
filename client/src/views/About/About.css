@@ -13,10 +13,14 @@
 .col1About {
   float: left;
   width: 40%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .col2About{
   float: right;
   width: 60%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* Clear floats after the columns */
@@ -27,11 +31,11 @@
 }
 
 #about-button {
-  margin-left: 35%;
+  margin-left: 43%;
   margin-top: 20px;
 }
 #image-button {
-  margin-left: 35%;
+  margin-left: 39%;
   margin-top: 20px;
 }
 
