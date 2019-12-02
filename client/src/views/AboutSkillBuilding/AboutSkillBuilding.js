@@ -8,6 +8,8 @@ function AboutSkillBuilding() {
     return (
       <div className="about-skill-building-page-content">
         <img src = {tmpImage} id="about-sb-image"></img>
+
+        {/*ADMIN ELEMENT*/}
         <div id="about-sb-edit-image">
           <button type='button' className="admin-element">Edit Image</button>
         </div>
@@ -19,6 +21,7 @@ function AboutSkillBuilding() {
           </p>
         </div>
 
+        {/*ADMIN ELEMENT*/}
         <div id="about-sb-edit-text">
           <button type='button' className="admin-element">Edit Text</button>
         </div>
