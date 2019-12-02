@@ -10,6 +10,8 @@ import Forum from "./views/Forum/Forum"
 import Calendar from "./views/Calendar/Calendar"
 import Donate from "./views/Donate/Donate"
 import Profile from "./views/Profile/Profile"
+import VideoChatJoin from "./views/Video Chat/VideoChatJoin";
+import VideoChatHost from "./views/Video Chat/VideoChatHost";
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
@@ -35,9 +37,11 @@ const App = () => {
           <Route exact path="/Forum" component={Forum} />
           <Route exact path="/Calendar" component={Calendar} />
           <Route exact path="/Donate" component={Donate} />
+          <Route exact path="/VideoChatJoin" component={VideoChatJoin} />
+          <Route exact path="/VideoChatHost" component={VideoChatHost} />
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/Register" component={Register} />
-          <Route exact path="/Login" component={Login} />    
+          <Route exact path="/Login" component={Login} />
           <Route exact path="/">
             <Redirect to="/Home" />
           </Route>
@@ -56,6 +60,6 @@ const App = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
