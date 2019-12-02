@@ -10,7 +10,8 @@ class Login extends React.Component{
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            errors: ''
         };
     }
 
@@ -33,7 +34,7 @@ class Login extends React.Component{
                     localStorage.setItem('jwtoken', res.data.token);
                     this.props.history.push('/Home');
                 } else {
-                    console.log(res.data.message);
+                    this.setState({errors: res.data.message});
                 }
             });
     }
