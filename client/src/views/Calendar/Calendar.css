@@ -2,7 +2,21 @@
     border-radius: 5px;
     background-color:#a8b6e3;
     padding: 30px;
+    margin-bottom: 20px;
 }
+
+.calendar {
+    position: relative; 
+    padding-bottom: 50%; 
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    left: 5%; 
+    height: 120px;
+}
+    .calendar iframe {
+    position: absolute; left: 0; width: 90%; height: 100%;
+    }
 
 input[type=text], select, textarea {
     width: 100%; /* Full width */
@@ -13,6 +27,9 @@ input[type=text], select, textarea {
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
     resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    overflow-wrap: break-word; /*Make text wrap and go down instead of continuing horizontally*/
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 input[type=submit] {
@@ -56,5 +73,11 @@ input[type=submit] {
 .column3 {
     float: right;
     width: 33%;
-    padding: 10px;
+    padding: 4px;
 }
+
+.textheight {
+    padding: 6px;
+}
+
+

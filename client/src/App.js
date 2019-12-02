@@ -10,6 +10,8 @@ import Forum from "./views/Forum/Forum"
 import Calendar from "./views/Calendar/Calendar"
 import Donate from "./views/Donate/Donate"
 import Profile from "./views/Profile/Profile"
+import VideoChatJoin from "./views/Video Chat/VideoChatJoin";
+import VideoChatHost from "./views/Video Chat/VideoChatHost";
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
@@ -24,6 +26,21 @@ const App = () => {
     <div className='page-container'>
       <div className='content-wrap'>
         <Switch>
+<<<<<<< HEAD
+=======
+          <Route exact path="/Home" component={Home} />
+          <Route exact path="/FreshOut" component={FreshOut} />
+          <Route exact path="/About" component={About} />
+          <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
+          <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
+          <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
+          <Route exact path="/Forum" component={Forum} />
+          <Route exact path="/Calendar" component={Calendar} />
+          <Route exact path="/Donate" component={Donate} />
+          <Route exact path="/VideoChatJoin" component={VideoChatJoin} />
+          <Route exact path="/VideoChatHost" component={VideoChatHost} />
+          <Route exact path="/Profile" component={Profile} />
+>>>>>>> d7c10633029084292a349c267ffdeb5576d52aef
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/">
@@ -51,6 +68,6 @@ const App = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
