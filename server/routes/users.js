@@ -12,6 +12,18 @@ router.get('/login', function(req, res){
     res.send({type: 'login'});
 });
 
+router.get('/list', function(req, res){
+    User.find({}, function(err, users) {
+        var userArray = [];
+
+        users.forEach(function(user) {
+          userArray.push(user);
+        });
+    
+        res.send(userArray);  
+      });
+});
+
 router.post('/register', async function(req, res){
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
