@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 class Register extends React.Component{
     constructor(props){
@@ -12,6 +13,12 @@ class Register extends React.Component{
             password: '',
             confirmPassword: ''
         };
+    }
+
+    componentDidMount(){
+        if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
+            this.props.history.push('/Home');
+        }
     }
 
     changeHandler = e => {

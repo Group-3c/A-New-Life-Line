@@ -26,26 +26,22 @@ const App = () => {
       <Header />
       <div className='content-wrap'>
         <Switch>
-          <Route exact path="/Home" component={Home} />
-          <Route exact path="/FreshOut" component={FreshOut} />
-          <Route exact path="/About" component={About} />
-          <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
-          <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
-          <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
-          <Route exact path="/Forum" component={Forum} />
-          <Route exact path="/Calendar" component={Calendar} />
-          <Route exact path="/Donate" component={Donate} />
-          <Route exact path="/Profile" component={Profile} />
           <Route exact path="/Register" component={Register} />
-          <Route exact path="/Login" component={Login} />    
+          <Route exact path="/Login" component={Login} /> 
+          <Route exact path="/About" component={About} /> 
           <Route exact path="/">
             <Redirect to="/Home" />
           </Route>
           <AuthRoute>
             <Route exact path="/Home" component={Home} />
-            <Route exact path="/About" component={About} />
-            <Route exact path="/Calendar" component={Calendar} />
+            <Route exact path="/FreshOut" component={FreshOut} />
+            <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
+            <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
+            <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
             <Route exact path="/Forum" component={Forum} />
+            <Route exact path="/Calendar" component={Calendar} />
+            <Route exact path="/Donate" component={Donate} />
+            <Route exact path="/Profile" component={Profile} />
           </AuthRoute>
           <Route component={NotFound}/>
           </Switch>
