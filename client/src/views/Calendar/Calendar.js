@@ -35,74 +35,74 @@ handleSubmit(event) {
  render() {
     return (
         <div className="App">
-            <div>
-                <header className="App-header">
-                    <iframe src={calendarEmbed} width="1200" height="800" frameborder="0" scrolling="no"/>
-                </header>
+            <div className="calendar">
+                <iframe src={calendarEmbed} frameborder="0" scrolling="no"/>
+            </div>
 
-                <div className="container">
-                    <form onSubmit={this.handleSubmit}>
-                        <div class="row">
-                            <label for="eventname">Event Name</label>
-                                <input
-                                    id="eventname"
-                                    type="text"
-                                    placeholder="Event Name"
-                                    name="name"
-                                    onChange={this.handleChange}
-                                    />
-
-                            <div className="column1">
-                                <label for="eventmonth">Event Month</label>
-                                    <input
-                                        id="eventmonth"
-                                        type="text"
-                                        placeholder="MM"
-                                        class="field1"
-                                        name="month"
-                                        onChange={this.handleChange}
-                                        />
-                            </div>
-
-                            <div className="column2">
-                                <label for="eventday">Event Date</label>
-                                    <input
-                                        id="eventday"
-                                        type="text"
-                                        placeholder="DD"
-                                        class="field2"
-                                        name="date"
-                                        onChange={this.handleChange}
-                                        />
-                            </div>
-
-                            <div className="column3">
-                                <label for="eventtype">Event Type</label>
-                                    <select id="eventtype"
-                                            class="field2"
-                                            name="type"
-                                            onChange={this.handleChange}
-                                        >
-                                            <option selected value="empty">-</option>
-                                            <option value="Meeting">Meeting</option>
-                                            <option value="Seminar">Seminar</option>
-                                            <option value="Placeholder">Placeholder</option>
-                                    </select>
-                            </div>
-                        </div>
-
-                        <label for="description">Description</label>
+            <div className="container">
+                <form onSubmit={this.handleSubmit}>
+                    
+                        <label for="eventname">Event Name</label>
                             <input
-                                id="description"
+                                id="eventname"
                                 type="text"
-                                placeholder="Description"
-                                name="description"
+                                placeholder="Event Name"
+                                name="name"
                                 onChange={this.handleChange}
                                 />
+                        <div class="row">
+                        <div className="column1">
+                            <label for="eventmonth">Event Month</label>
+                                <input
+                                    id="eventmonth"
+                                    type="text"
+                                    placeholder="MM"
+                                    class="field1"
+                                    name="month"
+                                    onChange={this.handleChange}
+                                    />
+                        </div>
 
-                        <input type="submit" value="Submit"/>
-                    </form>
-                </div>
+                        <div className="column2">
+                            <label for="eventday">Event Date</label>
+                                <input
+                                    id="eventday"
+                                    type="text"
+                                    placeholder="DD"
+                                    class="field2"
+                                    name="date"
+                                    onChange={this.handleChange}
+                                    />
+                        </div>
+
+                        <div className="column3">
+                            <div className="textheight">
+                            <label for="eventtype">Event Type</label>
+                            </div>
+                                <select id="eventtype"
+                                        class="field2"
+                                        name="type"
+                                        onChange={this.handleChange}
+                                    >
+                                        <option selected value="empty">-</option>
+                                        <option value="Meeting">Meeting</option>
+                                        <option value="Seminar">Seminar</option>
+                                        <option value="Placeholder">Placeholder</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <label for="description">Description</label>
+                        <input
+                            id="description"
+                            type="text"
+                            placeholder="Description"
+                            name="description"
+                            onChange={this.handleChange}
+                            />
+
+                    <input type="submit" value="Submit"/>
+                </form>
             </div>
         </div>
         );
