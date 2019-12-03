@@ -20,7 +20,7 @@ class Profile extends React.Component {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
         
-        await axios.get('https://a-new-life-line-server.herokuapp.com/users/list')
+        await axios.post('https://a-new-life-line-server.herokuapp.com/users/list')
             .then(res => this.setState({list:res.data}));
         
         console.log(this.state.list);
