@@ -23,7 +23,7 @@ router.get('/register', function(req, res){
 });
 
 router.get('/login', function(req, res){
-    res.send({type: 'login'});
+    res.json({type: 'login'});
 });
 
 router.get('/list', cors({
