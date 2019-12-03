@@ -5,10 +5,18 @@ var cors = require('cors');
 
 let User = require('../models/users');
 
-router.options('/register', cors());
-router.options('/login', cors());
-router.options('/list', cors());
-router.options('/permission', cors());
+router.options('/register', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}));
+router.options('/login', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}));
+router.options('/list', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}));
+router.options('/permission', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}));
 
 router.get('/register', function(req, res){
     res.send({type: 'register'});
@@ -18,7 +26,9 @@ router.get('/login', function(req, res){
     res.send({type: 'login'});
 });
 
-router.get('/list', function(req, res){
+router.get('/list', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}), function(req, res){
     User.find({}, function(err, users) {
         var userArray = [];
 
@@ -30,7 +40,9 @@ router.get('/list', function(req, res){
       });
 });
 
-router.post('/register', async function(req, res){
+router.post('/register', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}), async function(req, res){
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
@@ -117,7 +129,9 @@ router.post('/register', async function(req, res){
     
 });
 
-router.post('/login', function(req,res){
+router.post('/login', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}),function(req,res){
     const username = req.body.username;
     const password = req.body.password;
 
@@ -139,7 +153,9 @@ router.post('/login', function(req,res){
       });
 });
 
-router.post('/permission', async function(req,res){
+router.post('/permission', cors({
+    origin: 'https://a-new-life-line-client.herokuapp.com'
+}),async function(req,res){
     const username = req.body.username;
     const currPerm = req.body.permission;
 
