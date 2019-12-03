@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Calendar.css';
+import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 const calendarEmbed = "https://calendar.google.com/calendar/embed?src=9gkad3t3of6mecr49itogciq0c%40group.calendar.google.com&ctz=America%2FNew_York";
 
@@ -14,9 +16,15 @@ constructor(props) {
     date: '',
     type: '',
     description: '',
+    address: '',
+    username: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    async componentDidMount() {
+        await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
+        console.log(this.state.user)
     }
 
 handleChange(event) {
@@ -28,9 +36,22 @@ handleSubmit(event) {
     + " \nEvent Date: " + this.state.month + "/" + this.state.date
     + " \nEvent Type: " + this.state.type
     + " \nEvent Description: " + this.state.description
+    + " \nEvent Address: " + this.state.address
+    + " \nUsername: " + this.state.user.username
     );
     event.preventDefault();
+    const Event = {
+        name: this.state.name,
+        month: this.state.month,
+        date: this.state.date,
+        type: this.state.type,
+        description: this.state.description,
+        address: this.state.address,
+        username: this.state.user.username
     }
+    axios.post('http://localhost:5000/events/new-event', Event)
+        .then(res => console.log(res.data))
+}
 
  render() {
     return (
@@ -49,6 +70,7 @@ handleSubmit(event) {
                                 placeholder="Event Name"
                                 name="name"
                                 onChange={this.handleChange}
+                                required
                                 />
                         <div class="row">
                         <div className="column1">
@@ -60,6 +82,7 @@ handleSubmit(event) {
                                     class="field1"
                                     name="month"
                                     onChange={this.handleChange}
+                                    required
                                     />
                         </div>
 
@@ -72,6 +95,7 @@ handleSubmit(event) {
                                     class="field2"
                                     name="date"
                                     onChange={this.handleChange}
+                                    required
                                     />
                         </div>
 
@@ -92,13 +116,24 @@ handleSubmit(event) {
                         </div>
                     </div>
 
-                    <label for="description">Description</label>
+                    <label for="description">Description (Time)</label>
                         <input
                             id="description"
                             type="text"
                             placeholder="Description"
                             name="description"
                             onChange={this.handleChange}
+                            required
+                            />
+
+                    <label for="address">Address</label>
+                        <input
+                            id="address"
+                            type="text"
+                            placeholder="Address"
+                            name="address"
+                            onChange={this.handleChange}
+                            required
                             />
 
                     <input type="submit" value="Submit"/>
