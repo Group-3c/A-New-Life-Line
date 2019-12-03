@@ -101,8 +101,8 @@
 
 /*Calendar formatting for right column, adjusted for devices*/
 .dashCalendar {
-  position: relative; 
-  padding-bottom: 100%; 
+  position: relative;
+  padding-bottom: 100%;
   overflow: hidden;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -110,4 +110,3 @@
   .dashCalendar iframe {
   position: absolute; top:0; left: 0; width: 100%; height: 95%;
   }
-

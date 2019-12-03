@@ -24,8 +24,10 @@ import AuthRoute from "./components/AuthRoute"
 const App = () => {
   return (
     <div className='page-container'>
+      <Header />
       <div className='content-wrap'>
         <Switch>
+          <Route exact path="/Home" component={Home} />
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/About" component={About} />
@@ -33,8 +35,7 @@ const App = () => {
             <Redirect to="/Login" />
           </Route>
           <AuthRoute>
-            <Header />
-            <Route exact path="/Home" component={Home} />
+
             <Route exact path="/FreshOut" component={FreshOut} />
             <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
             <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
