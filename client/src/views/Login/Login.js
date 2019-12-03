@@ -40,7 +40,7 @@ class Login extends React.Component{
             password: this.state.password
         }
 
-        axios.post('https://a-new-life-line-server.herokuapp.com/api/users/login', user)
+        axios.post('https://a-new-life-line-server.herokuapp.com/users/login', user)
             .then(res => {
                 if (res.data.message === "Login")
                 {
