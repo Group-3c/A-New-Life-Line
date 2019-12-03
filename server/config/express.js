@@ -13,7 +13,7 @@ module.exports.init = () => {
         connect to database
         - reference README for db uri
     */
-    mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
+    mongoose.connect(process.env.DB_URI || "mongodb://cdiego55:@Coviella55@ds013918.mlab.com:13918/heroku_b58vn2kf", {
         useNewUrlParser: true
     });
     mongoose.set('useCreateIndex', true);
