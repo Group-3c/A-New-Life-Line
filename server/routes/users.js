@@ -33,7 +33,6 @@ router.get('/list', cors({
         var userArray = [];
 
         users.forEach(function(user) {
-            console.log(user);
           userArray.push(user);
         });
     
