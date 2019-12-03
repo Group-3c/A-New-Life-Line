@@ -22,6 +22,8 @@ class Profile extends React.Component {
         
         await axios.get('https://a-new-life-line-server.herokuapp.com/users/list')
             .then(res => this.setState({list:res.data}));
+        
+        console.log(this.state.list);
     }
 
     render() {
@@ -71,7 +73,6 @@ class Profile extends React.Component {
                             <Table.HeaderCell>Password</Table.HeaderCell>
                             <Table.HeaderCell>Permission</Table.HeaderCell>
                         </Table.Row>
-                    {console.log(this.state.list)}
                     {this.state.list.map(account => {
                         if(account.permission !== 'admin'){
                             return(
