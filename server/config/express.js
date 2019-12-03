@@ -43,7 +43,7 @@ module.exports.init = () => {
 
     // new code
     app.use(cors({
-        origin: 'https://a-new-life-line-client.herokuapp.com'
+        origin: 'https://new-life-line.herokuapp.com'
     }))
 
     app.use('/users', users);
