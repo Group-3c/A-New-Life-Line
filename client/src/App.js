@@ -32,16 +32,6 @@ const App = () => {
       <Header />
       <div className='content-wrap'>
         <Switch>
-          {/*Move these to AuthRoute when done testing*/}
-          <Route exact path="/Home" component={Home} />
-          <Route exact path="/MentorMeetings" component={MentorMeetings} />
-          <Route exact path="/EducationalOpportunities" component={EducationalOpportunities} />
-          <Route exact path="/JobTraining" component={JobTraining} />
-          <Route exact path="/GoalsPlanning" component={GoalsPlanning} />
-          <Route exact path="/EntTraining" component={EntTraining} />
-          {/**/}
-
-
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/About" component={About} />
@@ -49,7 +39,12 @@ const App = () => {
             <Redirect to="/Login" />
           </Route>
           <AuthRoute>
-
+            <Route exact path="/Home" component={Home} />
+            <Route exact path="/MentorMeetings" component={MentorMeetings} />
+            <Route exact path="/EducationalOpportunities" component={EducationalOpportunities} />
+            <Route exact path="/JobTraining" component={JobTraining} />
+            <Route exact path="/GoalsPlanning" component={GoalsPlanning} />
+            <Route exact path="/EntTraining" component={EntTraining} />
             <Route exact path="/FreshOut" component={FreshOut} />
             <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
             <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
