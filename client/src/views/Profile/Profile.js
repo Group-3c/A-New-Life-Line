@@ -81,7 +81,16 @@ class Profile extends React.Component {
                                 <Table.Cell>{account.password}</Table.Cell>
                                 <Table.Cell>
                                     {account.permission}
-                                    <Button floated="right">Switch</Button>
+                                    <Button floated="right" onClick={() => {
+                                        axios.post('http://localhost:5000/users/permission', {
+                                            username:account.username, 
+                                            permission:account.permission
+                                        })
+                                        .then(res => {
+                                            console.log(res.message);
+                                        });
+                                        window.location.reload();
+                                    }}>Switch</Button>
                                 </Table.Cell>
                             </Table.Row>)
                         }

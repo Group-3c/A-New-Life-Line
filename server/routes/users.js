@@ -133,4 +133,20 @@ router.post('/login', function(req,res){
       });
 });
 
+router.post('/permission', async function(req,res){
+    const username = req.body.username;
+    const currPerm = req.body.permission;
+
+    let query = {username:username};
+
+    if (currPerm === 'user') {
+        let updateUser = await User.findOneAndUpdate(query, {permission : 'mentor'}, {new: true, upsert: true});
+        res.send({message: 'mentor'});
+    } else {
+        let updateUser = await User.findOneAndUpdate(query, {permission : 'user'}, {new: true, upsert: true});
+        res.send({message: 'user'});
+    }
+});
+
+
 module.exports = router;

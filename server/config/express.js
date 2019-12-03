@@ -6,6 +6,7 @@ const path = require('path'),
     exampleRouter = require('../routes/examples.server.routes'),
     users = require('../routes/users'),
     cors = require('cors');
+    eventRouter = require('../routes/events');
 
 module.exports.init = () => {
     /* 
@@ -46,6 +47,7 @@ module.exports.init = () => {
     }))
 
     app.use('/users', users);
+    app.use('/events', eventRouter)
 
     return app
 }
