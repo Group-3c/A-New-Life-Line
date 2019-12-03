@@ -19,7 +19,6 @@ import './app.css';
 import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
 import AuthRoute from "./components/AuthRoute"
-import 'semantic-ui-css/semantic.min.css'
 
 
 const App = () => {
@@ -28,14 +27,15 @@ const App = () => {
       <Header />
       <div className='content-wrap'>
         <Switch>
+          <Route exact path="/Home" component={Home} />
           <Route exact path="/Register" component={Register} />
-          <Route exact path="/Login" component={Login} /> 
-          <Route exact path="/About" component={About} /> 
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/About" component={About} />
           <Route exact path="/">
-            <Redirect to="/Home" />
+            <Redirect to="/Login" />
           </Route>
           <AuthRoute>
-            <Route exact path="/Home" component={Home} />
+
             <Route exact path="/FreshOut" component={FreshOut} />
             <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
             <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
@@ -54,6 +54,6 @@ const App = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
