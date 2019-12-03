@@ -2,8 +2,10 @@
   "name": "react_template_repo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://a-new-life-line-client.herokuapp.com/",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "http-proxy-middleware": "^0.20.0",
     "jQuery": "npm:jquery@^3.4.1",
     "jquery": "^3.4.1",
     "jsonwebtoken": "^8.5.1",
@@ -45,6 +47,5 @@
   },
   "devDependencies": {
     "react-router-dom": "^5.1.2"
-  },
-  "proxy": "https://a-new-life-line-server.herokuapp.com/"
+  }
 }
