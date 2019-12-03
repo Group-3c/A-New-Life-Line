@@ -1,21 +1,21 @@
 #donate-button {
-  background-color: #738185;
+  background-color: #C4D5E3;
   border: none;
   color: black;
   padding: 15px 32px;
   text-decoration: none;
   display: block;
   font-size: 16px;
-  margin: auto;
 
 }
 #donate-button:hover {
-  background-color: #8fa1a6;
+  background-color: #B1C7DA;
+  text-decoration: none;
 }
 
 .footernav {
   display: block;
-  background-color: #fff0a6;
+  background-color: #0f1147;
   height: 80px;
   left: 0;
   bottom: 0;
@@ -24,15 +24,17 @@
 .buttonDiv {
   margin-top: 20px;
   display: inline-block;
-  margin-left: 43%;
+  margin-left: 42.5%;
 }
 .footer-left {
   display: inline;
   margin-left: 10px;
+  color: white;
 }
 .footer-right {
   display: inline;
   float: right;
   margin-top: 3%;
   margin-right: 10px;
+  color: white;
 }
