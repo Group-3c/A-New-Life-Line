@@ -3,7 +3,7 @@ const router = express.Router();
 
 let Events = require('../models/events');
 
-router.route('/new-event').post((req, res) => {
+router.post('/new-event').post((req, res) => {
     const name = req.body.name;
     const month = req.body.month;
     const date = req.body.date;
