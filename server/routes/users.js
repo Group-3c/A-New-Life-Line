@@ -14,7 +14,7 @@ router.get('/login', function(req, res){
 });
 
 router.post('/list', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
+    origin: 'https://new-life-line.herokuapp.com'
 }), function(req, res){
     User.find({}, function(err, users) {
         var userArray = [];
@@ -28,7 +28,7 @@ router.post('/list', cors({
 });
 
 router.post('/register', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
+    origin: 'https://new-life-line.herokuapp.com'
 }), async function(req, res){
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -117,7 +117,7 @@ router.post('/register', cors({
 });
 
 router.post('/login', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
+    origin: 'https://new-life-line.herokuapp.com'
 }),function(req,res){
     const username = req.body.username;
     const password = req.body.password;
@@ -141,7 +141,7 @@ router.post('/login', cors({
 });
 
 router.post('/permission', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
+    origin: 'https://new-life-line.herokuapp.com'
 }),async function(req,res){
     const username = req.body.username;
     const currPerm = req.body.permission;
