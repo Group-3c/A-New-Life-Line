@@ -24,6 +24,7 @@ import './app.css';
 import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
 import AuthRoute from "./components/AuthRoute"
+import 'semantic-ui-css/semantic.min.css';
 
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/About" component={About} />
+          <Route exact path="/Donate" component={Donate} />
           <Route exact path="/">
             <Redirect to="/Login" />
           </Route>
@@ -51,7 +53,6 @@ const App = () => {
             <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
             <Route exact path="/Forum" component={Forum} />
             <Route exact path="/Calendar" component={Calendar} />
-            <Route exact path="/Donate" component={Donate} />
             <Route exact path="/Profile" component={Profile} />
           </AuthRoute>
           <Route component={NotFound}/>
