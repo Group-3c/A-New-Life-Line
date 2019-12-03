@@ -71,6 +71,7 @@ class Profile extends React.Component {
                             <Table.HeaderCell>Password</Table.HeaderCell>
                             <Table.HeaderCell>Permission</Table.HeaderCell>
                         </Table.Row>
+                    {console.log(this.state.list)}
                     {this.state.list.map(account => {
                         if(account.permission !== 'admin'){
                             return(
