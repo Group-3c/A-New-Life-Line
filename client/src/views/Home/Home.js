@@ -12,7 +12,7 @@ function Home() {
         <div className="App">
           <div className='row'>
             <div className='col1'>
-              <Link to="/FreshOut"><button type="button" id='fresh-out-button'> Fresh Out? </button></Link>
+              <button type="button" id='fresh-out-button'><Link to="/FreshOut"> Fresh Out? </Link></button>
 
               <div class="dropdown">
                 <button class="dropbutton">Paradigm Shift</button>
