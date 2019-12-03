@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+var cors = require('cors');
 
 let User = require('../models/users');
+
+router.options('/register', cors());
+router.options('/login', cors());
+router.options('/list', cors());
+router.options('/permission', cors());
 
 router.get('/register', function(req, res){
     res.send({type: 'register'});
