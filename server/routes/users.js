@@ -5,15 +5,15 @@ var cors = require('cors');
 
 let User = require('../models/users');
 
-router.getJSON('/register', function(req, res){
+router.get('/register', function(req, res){
     res.send({type: 'register'});
 });
 
-router.getJSON('/login', function(req, res){
+router.get('/login', function(req, res){
     res.json({type: 'login'});
 });
 
-router.get('/list', cors({
+router.post('/list', cors({
     origin: 'https://a-new-life-line-client.herokuapp.com'
 }), function(req, res){
     User.find({}, function(err, users) {
