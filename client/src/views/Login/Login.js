@@ -67,6 +67,7 @@ class Login extends React.Component{
                         <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
                     </Form.Group>
                     <Button type="submit">Login</Button>
+                    <Link to="/Register" >Register</Link>
                 </Form>
             </Container>
             </>
