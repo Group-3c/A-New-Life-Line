@@ -44,7 +44,7 @@ class Register extends React.Component{
             confirmPassword: this.state.confirmPassword
         }
 
-        axios.post('https://a-new-life-line-server.herokuapp.com/users/register', user)
+        axios.post('https://new-life-line.herokuapp.com/users/register', user)
             .then(res => {
                 if (res.data === "Added")
                 {
