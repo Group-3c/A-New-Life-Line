@@ -1,17 +1,11 @@
-import React from 'react';
-import ZoomMtg from 'zoomus-jssdk';
-import jQuery from 'jquery';
-import $ from 'jquery';
-window.$ = window.jQuery = jQuery;
-
 (function(){
 
 	console.log('checkSystemRequirements');
 	console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
 
     // it's option if you want to change the jssdk dependency link resources.
-    // ZoomMtg.setZoomJSLib('https://source.zoom.us/1.6.1/lib', '/av'); // CDN version default
-    // ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/1.6.1/lib', '/av'); // china cdn option 
+    // ZoomMtg.setZoomJSLib('https://source.zoom.us/1.7.0/lib', '/av'); // CDN version default
+    // ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/1.7.0/lib', '/av'); // china cdn option 
     // ZoomMtg.setZoomJSLib('http://localhost:9999/node_modules/zoomus-jssdk/dist/lib', '/av'); // Local version default
     ZoomMtg.preLoadWasm();
 
@@ -86,11 +80,3 @@ window.$ = window.jQuery = jQuery;
     });
 
 })();
-
-function ZoomSDK(){
-    return(
-      <iframe title={'Zoom_HTML'} src={"../../../public/ZoomSDK.html"}/>
-    );
-}
-
-export default ZoomSDK;

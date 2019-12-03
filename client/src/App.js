@@ -10,8 +10,8 @@ import Forum from "./views/Forum/Forum"
 import Calendar from "./views/Calendar/Calendar"
 import Donate from "./views/Donate/Donate"
 import Profile from "./views/Profile/Profile"
-import VideoChatJoin from "./views/Video Chat/VideoChatJoin";
-import VideoChatHost from "./views/Video Chat/VideoChatHost";
+import VideoChatJoin from "./views/VideoChat/VideoChatJoin";
+import VideoChatHost from "./views/VideoChat/VideoChatHost";
 import NotFound from "./views/NotFound"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
@@ -20,7 +20,7 @@ import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
 import AuthRoute from "./components/AuthRoute"
 import 'semantic-ui-css/semantic.min.css'
-import ZoomSDK from './views/ZoomSDK/ZoomSDK';
+import ZoomSDKRender from './views/ZoomSDK/ZoomSDKRender';
 
 
 const App = () => {
@@ -40,7 +40,7 @@ const App = () => {
           <Route exact path="/Donate" component={Donate} />
           <Route exact path="/VideoChatJoin" component={VideoChatJoin} />
           <Route exact path="/VideoChatHost" component={VideoChatHost} />
-          <Route exact path="/ZoomSDK" component={ZoomSDK}/>
+          <Route exact path="/ZoomSDKRender" component={ZoomSDKRender}/>
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
