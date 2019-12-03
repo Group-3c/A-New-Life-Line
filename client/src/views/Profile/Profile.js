@@ -82,7 +82,7 @@ class Profile extends React.Component {
                                 <Table.Cell>
                                     {account.permission}
                                     <Button floated="right" onClick={() => {
-                                        axios.post('http://localhost:5000/users/permission', {
+                                        axios.post('https://a-new-life-line-server.herokuapp.com/users/permission', {
                                             username:account.username, 
                                             permission:account.permission
                                         })
