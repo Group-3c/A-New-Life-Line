@@ -11,7 +11,7 @@ const Header = () => {
       <div className='topnav'>
           {/* Logo */}
           <div className="topnav-logo">
-            <Link id="logo-link" to="/">
+            <Link id="logo-link" to="/Home">
                 <img src={ logo } alt="Site logo" />
             </Link>
           </div>
@@ -25,13 +25,13 @@ const Header = () => {
 
           </div>
           {/* Profile Icon */}
-      
+
           <div className="topnav-profile">
               <Link to="/Profile"><img src={profileIcon} alt="profile icon">
                 </img></Link>
           </div>
       </div>
-                
+
     )
 }
 

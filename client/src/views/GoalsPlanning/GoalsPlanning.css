@@ -1,0 +1,25 @@
+#gp-text {
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5%;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+#gp-edit-text {
+  margin-left: 46%;
+  margin-bottom: 10px;
+}
+
+#gp-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+#gp-edit-image {
+  margin-left: 46%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}

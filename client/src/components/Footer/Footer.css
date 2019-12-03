@@ -34,7 +34,13 @@
 .footer-right {
   display: inline;
   float: right;
-  margin-top: 3%;
+  margin-top: 2%;
   margin-right: 10px;
   color: white;
+}
+#socialmedia {
+  display: inline;
+}
+.socialmedia-logo {
+  margin-right: 10px;
 }

@@ -2,8 +2,6 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './About.css';
-import facebookLogo from '../../assets/facebook.png';
-import linkedinLogo from '../../assets/linkedin.png';
 import tmpImage from '../../assets/image-placeholder.jpg';
 
 function About() {
@@ -28,13 +26,6 @@ function About() {
 
             {/*ADMIN ELEMENT*/}
             <button type='button' className="admin-element" id="about-button">Edit Text</button>
-
-            <div id="social-media">
-              <a href="https://www.facebook.com/" target="_blank"><img src = {facebookLogo} alt="facebook logo"
-               className="socialmedia-logo"></img></a>
-              <a href="https://www.linkedin.com" target="_blank"><img src = {linkedinLogo} alt="linkedIn logo"
-               className="socialmedia-logo"></img></a>
-            </div>
           </div>
 
         </div>
