@@ -5,24 +5,11 @@ var cors = require('cors');
 
 let User = require('../models/users');
 
-router.options('/register', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
-}));
-router.options('/login', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
-}));
-router.options('/list', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
-}));
-router.options('/permission', cors({
-    origin: 'https://a-new-life-line-client.herokuapp.com'
-}));
-
-router.get('/register', function(req, res){
+router.getJSON('/register', function(req, res){
     res.send({type: 'register'});
 });
 
-router.get('/login', function(req, res){
+router.getJSON('/login', function(req, res){
     res.json({type: 'login'});
 });
 
