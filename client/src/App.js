@@ -20,6 +20,7 @@ import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
 import AuthRoute from "./components/AuthRoute"
 import 'semantic-ui-css/semantic.min.css'
+import ZoomSDK from './views/ZoomSDK/ZoomSDK';
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
           <Route exact path="/Donate" component={Donate} />
           <Route exact path="/VideoChatJoin" component={VideoChatJoin} />
           <Route exact path="/VideoChatHost" component={VideoChatHost} />
+          <Route exact path="/ZoomSDK" component={ZoomSDK}/>
           <Route exact path="/Profile" component={Profile} />
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
