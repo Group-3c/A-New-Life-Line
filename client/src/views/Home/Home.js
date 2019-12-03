@@ -31,12 +31,14 @@ function Home() {
                 <div class="dropdown-content">
                   <Link to="/AboutEntrepeneurship"><p>About</p></Link>
                 </div>
+                
               </div>
-
+              
             </div>
-
             <div className='col2'>
-            <iframe src={calendarEmbed} width="280" height="280" frameborder="0" scrolling="no" id="calendarEmbed"/>
+              <div className='dashCalendar'>
+              <iframe src={calendarEmbed} height="350px" width="300px" frameborder="0" scrolling="no" id="calendarEmbed"/>
+              </div>
               <div id='tasks'>
                 <h3> Tasks </h3>
                 <ul>
@@ -46,6 +48,7 @@ function Home() {
                 </ul>
               </div>
             </div>
+            
           </div>
 
         </div>
