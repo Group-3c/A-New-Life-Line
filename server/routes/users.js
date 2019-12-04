@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+var cors = require('cors');
 
 let User = require('../models/users');
 
@@ -9,10 +10,12 @@ router.get('/register', function(req, res){
 });
 
 router.get('/login', function(req, res){
-    res.send({type: 'login'});
+    res.json({type: 'login'});
 });
 
-router.get('/list', function(req, res){
+router.post('/list', cors({
+    origin: 'https://new-life-line.herokuapp.com'
+}), function(req, res){
     User.find({}, function(err, users) {
         var userArray = [];
 
@@ -24,7 +27,9 @@ router.get('/list', function(req, res){
       });
 });
 
-router.post('/register', async function(req, res){
+router.post('/register', cors({
+    origin: 'https://new-life-line.herokuapp.com'
+}), async function(req, res){
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
@@ -113,7 +118,9 @@ router.post('/register', async function(req, res){
     
 });
 
-router.post('/login', function(req,res){
+router.post('/login', cors({
+    origin: 'https://new-life-line.herokuapp.com'
+}),function(req,res){
     const username = req.body.username;
     const password = req.body.password;
 
@@ -135,7 +142,9 @@ router.post('/login', function(req,res){
       });
 });
 
-router.post('/permission', async function(req,res){
+router.post('/permission', cors({
+    origin: 'https://new-life-line.herokuapp.com'
+}),async function(req,res){
     const username = req.body.username;
     const currPerm = req.body.permission;
 

@@ -14,7 +14,7 @@ module.exports.init = () => {
         connect to database
         - reference README for db uri
     */
-    mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
+    mongoose.connect(process.env.DB_URI, {
         useNewUrlParser: true
     });
     mongoose.set('useCreateIndex', true);
@@ -44,7 +44,7 @@ module.exports.init = () => {
 
     // new code
     app.use(cors({
-        origin: 'http://localhost:3000'
+        origin: 'https://new-life-line.herokuapp.com'
     }))
 
     app.use('/users', users);

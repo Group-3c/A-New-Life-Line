@@ -20,8 +20,10 @@ class Profile extends React.Component {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
         
-        await axios.get('http://localhost:5000/users/list')
+        await axios.post('https://new-life-line.herokuapp.com/users/list')
             .then(res => this.setState({list:res.data}));
+        
+        console.log(this.state.list);
     }
 
     render() {
@@ -82,7 +84,7 @@ class Profile extends React.Component {
                                 <Table.Cell>
                                     {account.permission}
                                     <Button floated="right" onClick={() => {
-                                        axios.post('http://localhost:5000/users/permission', {
+                                        axios.post('https://new-life-line.herokuapp.com/users/permission', {
                                             username:account.username, 
                                             permission:account.permission
                                         })
