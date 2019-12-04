@@ -37,6 +37,8 @@ router.post('/register', async function(req, res){
 
     var add = true;
 
+    var errors =[];
+
     const name = req.body.name;
     const email = req.body.email;
     const username = req.body.username;
@@ -47,44 +49,44 @@ router.post('/register', async function(req, res){
     if (name === '')
     {
         add = false;
-        res.write("Name must not be empty\n");
+        errors.push("Name must not be empty");
     }
 
     if (username === '')
     {
         add = false;
-        res.write("Userame must not be empty\n");
+        errors.push("Userame must not be empty");
     }
 
     let query = {username:username};
     await User.findOne(query, function(err, user){
         if (user) {
             add = false;
-            res.write("Username already exists\n");
+            errors.push("Username already exists");
         }
     });
 
     if (!validateEmail(email)) {
         add = false;
-        res.write("Not a valid email\n");
+        errors.push("Not a valid email");
     }
 
     let query2 = {email:email};
     await User.findOne(query2, function(err, email){
         if (email) {
             add = false;
-            res.write("An account with that email already exists\n");
+            errors.push("An account with that email already exists");
         }
     });
 
     if (!validatePassword(password)) {
         add = false;
-        res.write("Pass word must be 6 - 20 characters and contain at least:\n -one lowercase letter\n -one uppercase letter\n -one numeric digit\n -one special character\n");
+        errors.push("Password must be 6 - 20 characters and contain at least:\n -one lowercase letter\n -one uppercase letter\n -one numeric digit\n -one special character\n");
     }
 
     if (password !== confirmPassword) {
         add = false;
-        res.write("Passwords do not match\n");
+        errors.push("Passwords do not match");
     }
 
     await setTimeout(() => {
@@ -105,7 +107,7 @@ router.post('/register', async function(req, res){
             });
             res.send('Added');
         } else {
-            res.end();
+            res.send(errors);
         }        
     }, 500);
     

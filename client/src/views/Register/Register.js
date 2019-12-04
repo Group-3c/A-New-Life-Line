@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
 import jwt from 'jsonwebtoken';
-import { Button, Container, Form } from 'semantic-ui-react';
+import { Button, Container, Form, Grid } from 'semantic-ui-react';
 
 class Register extends React.Component{
     constructor(props){
@@ -78,6 +78,22 @@ class Register extends React.Component{
                     <Button type="submit">Register</Button>
                 </Form>
             </Container>
+            <br/>
+            {this.state.errors &&
+            <Container>
+                <Grid>
+                    <Grid.Column>
+                        {this.state.errors.map(error => {
+                            return(
+                                <>
+                                <Grid.Row>{error}</Grid.Row>
+                                <br/>
+                                </>
+                            )
+                        })}
+                    </Grid.Column>
+                </Grid>
+            </Container>}
             </>
         );
     }

@@ -7,6 +7,7 @@ const eventSchema = mongoose.Schema({
     type: {type: String, required: false, unique: false},
     description: {type: String, required: true, unique: false},
     address: {type: String, required: true, unique: false},
+    username: {type: String, required: true, unique: false}
 });
 
 /* Use your schema to instantiate a Mongoose model */
