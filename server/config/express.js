@@ -7,9 +7,10 @@ const path = require('path'),
     users = require('../routes/users'),
     cors = require('cors');
     eventRouter = require('../routes/events');
+    postsRouter = require('../routes/posts');
 
 module.exports.init = () => {
-    /* 
+    /*
         connect to database
         - reference README for db uri
     */
@@ -47,8 +48,8 @@ module.exports.init = () => {
     }))
 
     app.use('/users', users);
-    app.use('/events', eventRouter)
+    app.use('/events', eventRouter);
+    app.use('/posts', postsRouter);
 
     return app
 }
-

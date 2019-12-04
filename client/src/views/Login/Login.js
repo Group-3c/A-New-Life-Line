@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Login.css';
 import backgroundImg from '../../assets/background-img.jpg';
 import jwt from 'jsonwebtoken';
-import { Button, Container, Form } from 'semantic-ui-react';
+import { Button, Container, Form, Grid } from 'semantic-ui-react';
 
 class Login extends React.Component{
     constructor(props){
@@ -12,7 +12,8 @@ class Login extends React.Component{
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            errors: ''
         };
     }
 
@@ -47,7 +48,7 @@ class Login extends React.Component{
                     localStorage.setItem('jwtoken', res.data.token);
                     this.props.history.push('/Home');
                 } else {
-                    console.log(res.data.message);
+                    this.setState({errors: res.data.message});
                 }
             });
     }
@@ -70,6 +71,13 @@ class Login extends React.Component{
                     <Link to="/Register" >Register</Link>
                 </Form>
             </Container>
+            <br/>
+            {this.state.errors &&
+            <Container>
+                <Grid>
+                    <Grid.Row centered>{this.state.errors}</Grid.Row>
+                </Grid>
+            </Container>}
             </>
         );
     }

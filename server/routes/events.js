@@ -10,8 +10,9 @@ router.route('/new-event').post((req, res) => {
     const type = req.body.type;
     const description = req.body.description;
     const address = req.body.address;
+    const username = req.body.username;
 
-const newEvent = new Events({name, month, date, type, description, address});
+const newEvent = new Events({name, month, date, type, description, address, username});
 
 newEvent.save()
     .then(() => res.json('New Event'))

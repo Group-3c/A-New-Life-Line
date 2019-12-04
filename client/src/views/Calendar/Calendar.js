@@ -3,6 +3,7 @@ import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Calendar.css';
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 const calendarEmbed = "https://calendar.google.com/calendar/embed?src=9gkad3t3of6mecr49itogciq0c%40group.calendar.google.com&ctz=America%2FNew_York";
 
@@ -16,9 +17,14 @@ constructor(props) {
     type: '',
     description: '',
     address: '',
+    username: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    async componentDidMount() {
+        await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
+        console.log(this.state.user)
     }
 
 handleChange(event) {
@@ -31,6 +37,7 @@ handleSubmit(event) {
     + " \nEvent Type: " + this.state.type
     + " \nEvent Description: " + this.state.description
     + " \nEvent Address: " + this.state.address
+    + " \nUsername: " + this.state.user.username
     );
     event.preventDefault();
     const Event = {
@@ -39,7 +46,8 @@ handleSubmit(event) {
         date: this.state.date,
         type: this.state.type,
         description: this.state.description,
-        address: this.state.address
+        address: this.state.address,
+        username: this.state.user.username
     }
     axios.post('http://localhost:5000/events/new-event', Event)
         .then(res => console.log(res.data))
