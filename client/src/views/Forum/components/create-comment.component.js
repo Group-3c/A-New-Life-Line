@@ -14,7 +14,8 @@ export default class CreateComment extends Component {
 
     this.state = {
       message: '',
-      name: ''
+      name: '',
+      posts: []
     }
   }
 
@@ -22,6 +23,13 @@ export default class CreateComment extends Component {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
       console.log(this.state.user);
+      axios.get('http://localhost:5000/posts/' + this.props.match.params.id)
+      .then(response => {
+        this.setState({posts: response.data})
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   onChangeName(e) {
@@ -68,6 +76,21 @@ export default class CreateComment extends Component {
   render() {
     return (
       <div>
+        <h2>Post</h2>
+        <table className="table">
+          <thead className="thead-light">
+            <tr>
+              <th>Question</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            {<tr>
+              <td>{this.state.posts.question}</td>
+              <td>{this.state.posts.name}</td>
+            </tr>}
+          </tbody>
+        </table>
         <h2>Comment</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
