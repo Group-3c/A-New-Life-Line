@@ -13,6 +13,7 @@ function Home() {
           <div className='row'>
             <div className='col1'>
             <button type="button" id='fresh-out-button'> <Link to="/FreshOut">Fresh Out? </Link></button>
+
               <div class="dropdown">
                 <button class="dropbutton">Paradigm Shift</button>
                 <div class="dropdown-content">
