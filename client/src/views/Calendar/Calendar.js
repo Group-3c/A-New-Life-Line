@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Calendar.css';
 import axios from 'axios';
@@ -62,7 +61,7 @@ handleSubmit(event) {
 
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
-                    
+
                         <label for="eventname">Event Name</label>
                             <input
                                 id="eventname"

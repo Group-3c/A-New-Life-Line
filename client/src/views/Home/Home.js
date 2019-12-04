@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Home.css';
 
@@ -25,7 +24,7 @@ function Home() {
                 <button class="dropbutton">Skill Building</button>
                 <div class="dropdown-content">
                   <Link to="/AboutSkillBuilding"><p>About</p></Link>
-                  <Link to="/EducationalOpportunities"><p>Educational Opportunities</p></Link>	
+                  <Link to="/EducationalOpportunities"><p>Educational Opportunities</p></Link>
                   <Link to="/JobTraining"><p>Job Training</p></Link>
                 </div>
               </div>
@@ -33,12 +32,12 @@ function Home() {
                 <button class="dropbutton">Entrepeneurship</button>
                 <div class="dropdown-content">
                   <Link to="/AboutEntrepeneurship"><p>About</p></Link>
-                  <Link to="/GoalsPlanning"><p>Goals and Planning</p></Link>	
+                  <Link to="/GoalsPlanning"><p>Goals and Planning</p></Link>
                   <Link to="/EntTraining"><p>Entrepeneurship Training</p></Link>
                 </div>
-                
+
               </div>
-              
+
             </div>
             <div className='col2'>
               <div className='dashCalendar'>
@@ -53,7 +52,7 @@ function Home() {
                 </ul>
               </div>
             </div>
-            
+
           </div>
 
         </div>

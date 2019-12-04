@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../../app.css';
 import './Header.css';
 import profileIcon from '../../assets/user.png';
-import {Button} from 'semantic-ui-react';
 import logo from '../../assets/logo.png';
 
 const Header = () => {

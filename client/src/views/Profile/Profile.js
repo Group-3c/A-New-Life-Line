@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Profile.css';
 import { Button, Container, Grid, Table } from 'semantic-ui-react';
@@ -19,7 +18,7 @@ class Profile extends React.Component {
     async componentDidMount() {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-        
+
         await axios.get('http://localhost:5000/users/list')
             .then(res => this.setState({list:res.data}));
     }
@@ -56,7 +55,7 @@ class Profile extends React.Component {
                             localStorage.removeItem('jwtoken');
                             window.location.reload();
                             }}>Logout</Button>
-                        </Grid.Row>                    
+                        </Grid.Row>
                     </Grid>
                 </Container>
                 }
@@ -83,7 +82,7 @@ class Profile extends React.Component {
                                     {account.permission}
                                     <Button floated="right" onClick={() => {
                                         axios.post('http://localhost:5000/users/permission', {
-                                            username:account.username, 
+                                            username:account.username,
                                             permission:account.permission
                                         })
                                         .then(res => {

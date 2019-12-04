@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './GoalsPlanning.css';
 import tmpImage from '../../assets/image-placeholder.jpg';

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Donate.css';
 
@@ -19,7 +18,7 @@ function Donate() {
           </div>
 
           <div className="donate-button">
-            <a href="https://paypal.com" target="_blank"className='donate-link'>Donate</a>
+            <a href="https://paypal.com" target="_blank" rel="noopener noreferrer" className='donate-link'>Donate</a>
           </div>
 
           <div id="donate-link-button">
