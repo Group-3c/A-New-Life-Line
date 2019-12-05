@@ -43,14 +43,6 @@ function Home() {
               <div className='dashCalendar'>
               <iframe src={calendarEmbed} height="350px" width="300px" frameborder="0" scrolling="no" id="calendarEmbed"/>
               </div>
-              <div id='tasks'>
-                <h3> Tasks </h3>
-                <ul>
-                  <li>Skill Assessment</li>
-                  <li>...</li>
-                  <li>...</li>
-                </ul>
-              </div>
             </div>
 
           </div>
