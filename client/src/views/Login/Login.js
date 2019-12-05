@@ -19,12 +19,12 @@ class Login extends React.Component{
 
     componentDidMount(){
 
-        try {    
+        try {
             if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
                 this.props.history.push('/Home');
-            }       
+            }
         } catch(err) {
-            
+
             this.props.history.push('/Login');
         }
     }

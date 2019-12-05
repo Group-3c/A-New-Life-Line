@@ -135,7 +135,7 @@ handleSubmit(event) {
                             required
                             />
 
-                    <input type="submit" value="Submit"/>
+                    <input type="submit" value="Submit" id="calendar-submit"/>
                 </form>
             </div>
         </div>
