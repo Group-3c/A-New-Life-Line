@@ -33,6 +33,14 @@
   background-color: #546494;
 }
 
+#fo-button {
+  color: white;
+}
+#fo-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
 #calendarEmbed {
   margin-top: 20px;
 }

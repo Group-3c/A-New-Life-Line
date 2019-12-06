@@ -23,6 +23,8 @@ import Footer from "./components/Footer/Footer"
 import './app.css';
 import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
+import Start from "./views/Start/Start"
+import Cover from "./views/Cover/Cover"
 import AuthRoute from "./components/AuthRoute"
 import 'semantic-ui-css/semantic.min.css'
 
@@ -30,6 +32,7 @@ import 'semantic-ui-css/semantic.min.css'
 const App = () => {
   return (
     <div className='page-container'>
+
       <Header />
       <div className='content-wrap'>
         <Switch>
@@ -41,6 +44,7 @@ const App = () => {
             <Redirect to="/Login" />
           </Route>
           <AuthRoute>
+
             <Route exact path="/Home" component={Home} />
             <Route exact path="/MentorMeetings" component={MentorMeetings} />
             <Route exact path="/EducationalOpportunities" component={EducationalOpportunities} />
@@ -54,14 +58,19 @@ const App = () => {
             <Route exact path="/Forum" component={Forum} />
             <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Profile" component={Profile} />
+
           </AuthRoute>
+
           <Route component={NotFound}/>
+
           </Switch>
+
+          <div className='footer'>
+            <Footer />
+          </div>
       </div>
 
-      <div className='footer'>
-        <Footer />
-      </div>
+
     </div>
   );
 };

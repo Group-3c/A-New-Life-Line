@@ -83,8 +83,13 @@ class About extends React.Component {
           <div className='col1About'>
             <img src = {tmpImage}></img>
 
-            {/*ADMIN ELEMENT*/}
-            <button type='button' className="admin-element" id="image-button">Edit Image</button>
+            {(this.state.user && this.state.user.permission) === 'admin' &&
+              <button type='button'
+                      className="admin-element"
+                      id="image-button"
+                      >Edit Image</button>
+            }
+
           </div>
 
           <div className='col2About'>
