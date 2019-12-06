@@ -25,21 +25,25 @@ class About extends React.Component {
   }
 
   async componentDidMount() {
-      await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
+    try {
+      if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
+        await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      await axios.get('http://localhost:5000/adminText/5de940ce193cce4df8518598')
-        .then(response => {
-          this.setState({
-            text: response.data.text
+        await axios.get('http://localhost:5000/adminText/5de940ce193cce4df8518598')
+          .then(response => {
+            this.setState({
+              text: response.data.text
+            })
+            console.log("Fetched text from database")
+            console.log(response.data.text);
           })
-          console.log("Fetched text from database")
-          console.log(response.data.text);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-
-
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
+    } catch(err) {
+      console.log('Not logged in');
+    }   
   }
 
   onChangeText(e) {
