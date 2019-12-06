@@ -25,6 +25,7 @@ import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
 import Start from "./views/Start/Start"
 import Cover from "./views/Cover/Cover"
+import ResumeBuilder from "./views/ResumeBuilder/ResumeBuilder"
 import AuthRoute from "./components/AuthRoute"
 import 'semantic-ui-css/semantic.min.css'
 
@@ -55,6 +56,7 @@ const App = () => {
             <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
             <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
             <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
+            <Route exact path="/ResumeBuilder" component={ResumeBuilder} />
             <Route exact path="/Forum" component={Forum} />
             <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Profile" component={Profile} />

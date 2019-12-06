@@ -26,7 +26,7 @@ class AboutEntrepeneurship extends React.Component {
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      await axios.get('http://localhost:5000/adminText/5de94aebb743d65040574d07')
+      await axios.get('http://localhost:5000/adminText/5dea7a8ef8c61e727003ea5d')
         .then(response => {
           this.setState({
             text: response.data.text
@@ -68,7 +68,7 @@ class AboutEntrepeneurship extends React.Component {
 
     console.log(adminText);
 
-    axios.post('http://localhost:5000/adminText/update/5de94aebb743d65040574d07', adminText)
+    axios.post('http://localhost:5000/adminText/update/5dea7a8ef8c61e727003ea5d', adminText)
       .then(res => console.log(res.data));
 
     this.hideForm();

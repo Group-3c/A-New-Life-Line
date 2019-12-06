@@ -26,7 +26,7 @@ class AboutParadigmShift extends React.Component {
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      await axios.get('http://localhost:5000/adminText/5de94adbb743d65040574d05')
+      await axios.get('http://localhost:5000/adminText/5dea7a80f8c61e727003ea5b')
         .then(response => {
           this.setState({
             text: response.data.text
@@ -68,7 +68,7 @@ class AboutParadigmShift extends React.Component {
 
     console.log(adminText);
 
-    axios.post('http://localhost:5000/adminText/update/5de94adbb743d65040574d05', adminText)
+    axios.post('http://localhost:5000/adminText/update/5dea7a80f8c61e727003ea5b', adminText)
       .then(res => console.log(res.data));
 
     this.hideForm();

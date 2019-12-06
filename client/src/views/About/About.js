@@ -2,83 +2,9 @@ import React from 'react';
 import '../../app.css';
 import './About.css';
 import tmpImage from '../../assets/image-placeholder.jpg';
-import jwt from 'jsonwebtoken';
-import axios from 'axios';
 
 
 class About extends React.Component {
-
-  constructor(props){
-      super(props);
-
-      this.onChangeText = this.onChangeText.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
-      this.showForm = this.showForm.bind(this);
-      this.hideForm = this.hideForm.bind(this);
-
-      this.state = {
-          user: '',
-          permission: '',
-          text: '',
-          showForm: false
-      }
-  }
-
-  async componentDidMount() {
-    try {
-      if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
-        await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
-
-        await axios.get('http://localhost:5000/adminText/5de940ce193cce4df8518598')
-          .then(response => {
-            this.setState({
-              text: response.data.text
-            })
-            console.log("Fetched text from database")
-            console.log(response.data.text);
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-      }
-    } catch(err) {
-      console.log('Not logged in');
-    }   
-  }
-
-  onChangeText(e) {
-    this.setState({
-      text: e.target.value
-    })
-  }
-
-  showForm() {
-    this.setState({
-      showForm: true
-    })
-  }
-
-  hideForm() {
-    this.setState({
-      showForm: false
-    })
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-
-    const adminText = {
-      text: this.state.text,
-    }
-
-    console.log(adminText);
-
-    axios.post('http://localhost:5000/adminText/update/5de940ce193cce4df8518598', adminText)
-      .then(res => console.log(res.data));
-
-    this.hideForm();
-
-  }
 
   render() {
     return (
@@ -86,47 +12,29 @@ class About extends React.Component {
         <div className='rowAbout'>
           <div className='col1About'>
             <img src = {tmpImage}></img>
-
-            {(this.state.user && this.state.user.permission) === 'admin' &&
-              <button type='button'
-                      className="admin-element"
-                      id="image-button"
-                      >Edit Image</button>
-            }
-
           </div>
 
           <div className='col2About'>
-            <p>{this.state.text}</p>
+            <h1>About the A New Life Line</h1>
+            <p>
+            A New Life Line is a social enterprise providing assessment and re-entry support in the form of job placement,
+             training, and mentorship for men transitioning from incarceration to their communities after they are released.
+             A New Life Line combines both in-person and online, asynchronous support from other formerly incarcerated persons
+              along their journey. </p>
 
-            {(this.state.user && this.state.user.permission) === 'admin' &&
-              <button type='button'
-                      className="admin-element"
-                      id="about-button"
-                      onClick={this.showForm}>Edit Text</button>
-            }
-
-            { this.state.showForm &&
-              <form className="admin-form" onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <textarea rows="7" cols="40"
-                    required
-                    className="form-control"
-                    value={this.state.text}
-                    onChange={this.onChangeText}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <input type="submit" value="Submit Text" className="admin-element" />
-                </div>
-              </form>
-            }
-
+            <br />
+            <h1>About the Creator</h1>
+            <p>
+              My name is Steven Revels, my company is A New Life Line, and my goal is to bring a divided group of people
+              together... felons! Don’t looked shocked, you heard me right: felons! The word alone is intimidating and
+              makes people back off. I want to change that. Many felons in the USA have a hard time getting
+              ahead. That’s where I come in! Everyone goes through chapters in their life where they don't make the best
+              decisions. This program will be something like a community for felons, to progress, to talk about their different
+              issues and challenges, and to help each other to overcome obstacles. Through the website we hope to build a
+              community of positive individuals.
+            </p>
           </div>
-
         </div>
-
       </div>
     );
   }

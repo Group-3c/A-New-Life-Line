@@ -9,7 +9,8 @@ const Footer = () => {
     return (
         <div className='footernav'>
             <div className='footer-left'>
-              Info
+              <Link className="footer-link" to="/HireMembers" style={{ textDecoration: 'none' }}>Hire our Members</Link>
+              <Link className="footer-link" to="/AccessDatabase" style={{ textDecoration: 'none' }}>Access our Database</Link>
             </div>
             <div className='buttonDiv'>
               <Link id="logo-link" to="/Donate"><button type="button" id='donate-button'> Donate </button></Link>

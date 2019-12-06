@@ -13,24 +13,25 @@ function Home() {
             <div className='col1'>
             <button type="button" id='fresh-out-button'> <Link to="/FreshOut" id="fo-button">Fresh Out? </Link></button>
 
-              <div class="dropdown">
-                <button class="dropbutton">Paradigm Shift</button>
-                <div class="dropdown-content">
+              <div className="dropdown">
+                <button className="dropbutton">Paradigm Shift</button>
+                <div className="dropdown-content">
                   <Link to="/AboutParadigmShift"><p>About</p></Link>
                   <Link to="/MentorMeetings"><p>Mentor Meetings</p></Link>
+                  <Link to="/ResumeBuilder"><p>Resume Builder</p></Link>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropbutton">Skill Building</button>
-                <div class="dropdown-content">
+              <div className="dropdown">
+                <button className="dropbutton">Skill Building</button>
+                <div className="dropdown-content">
                   <Link to="/AboutSkillBuilding"><p>About</p></Link>
                   <Link to="/EducationalOpportunities"><p>Educational Opportunities</p></Link>
                   <Link to="/JobTraining"><p>Job Training</p></Link>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropbutton">Entrepeneurship</button>
-                <div class="dropdown-content">
+              <div className="dropdown">
+                <button className="dropbutton">Entrepeneurship</button>
+                <div className="dropdown-content">
                   <Link to="/AboutEntrepeneurship"><p>About</p></Link>
                   <Link to="/GoalsPlanning"><p>Goals and Planning</p></Link>
                   <Link to="/EntTraining"><p>Entrepeneurship Training</p></Link>

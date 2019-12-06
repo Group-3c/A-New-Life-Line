@@ -22,6 +22,7 @@ export default class CreateComment extends Component {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
       console.log(this.state.user);
+      console.log(this.props);
       axios.get('http://localhost:5000/posts/' + this.props.match.params.id)
       .then(response => {
         this.setState({posts: response.data})
