@@ -3,6 +3,17 @@ const router = express.Router();
 
 let Events = require('../models/events');
 
+router.get('/list', function(req, res){
+    Events.find({}, function(err, events) {
+        var eventArray = [];
+
+        events.forEach(function(event) {
+          eventArray.push(event);
+        });
+        res.send(eventArray);  
+      });
+});
+
 router.route('/new-event').post((req, res) => {
     const name = req.body.name;
     const month = req.body.month;
