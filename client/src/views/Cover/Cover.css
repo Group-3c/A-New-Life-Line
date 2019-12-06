@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif&display=swap');
+
+#cover-content {
+  text-align: center;
+}
+
+h1, h3 {
+  font-family: 'Noto Serif', serif;
+}
+
+#cover-title {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+
+#cover-columns {
+  column-count: 3;
+  column-gap: 50px;
+}
+
+#cover-col1, #cover-col2, #cover-col3 {
+  column-span: 1;
+}
+
+.num-images {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.step-images {
+  margin-top: 20px;
+  border-radius: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.step-content {
+  display: none;
+}
+
+#img1, #img2, #img3 {
+  transition: transform .2s;
+}
+
+#img1:hover, #img2:hover, #img3:hover {
+  transform: scale(1.03);
+}
+
+#img1:hover #step1-content{display: block;}
+#img2:hover #step2-content{display: block;}
+#img3:hover #step3-content{display: block;}
+
+#get-started-button {
+  margin-top: 160px;
+  background-color: #c6e5fc;
+  border: none;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5%;
+}
+
+#get-started-button a {
+  color: #006cf0;
+  padding: 10px 50px;
+}
+
+#get-started-button:hover { background-color: #B1C7DA;}
+#get-started-button:hover a {text-decoration: none;}
+
+#icon-credits {
+  margin-top: 30px;
+  font-size: 12px;
+  color: gray;
+}

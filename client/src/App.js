@@ -33,16 +33,17 @@ import 'semantic-ui-css/semantic.min.css'
 const App = () => {
   return (
     <div className='page-container'>
-
       <Header />
       <div className='content-wrap'>
         <Switch>
+          <Route exact path="/Start" component={Start} />
+          <Route exact path="/Cover" component={Cover} />
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/About" component={About} />
           <Route exact path="/Donate" component={Donate} />
           <Route exact path="/">
-            <Redirect to="/Login" />
+            <Redirect to="/Start" />
           </Route>
           <AuthRoute>
 
@@ -60,16 +61,14 @@ const App = () => {
             <Route exact path="/Forum" component={Forum} />
             <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Profile" component={Profile} />
-
           </AuthRoute>
 
           <Route component={NotFound}/>
 
           </Switch>
-
-          <div className='footer'>
-            <Footer />
-          </div>
+        <div className='footer'>
+          <Footer />
+        </div>
       </div>
 
 
