@@ -4,7 +4,7 @@ import '../../app.css';
 import './Calendar.css';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import { Button, Container, Grid, Table } from 'semantic-ui-react';
+import { Button, Container, Table } from 'semantic-ui-react';
 
 const calendarEmbed = "https://calendar.google.com/calendar/embed?src=9gkad3t3of6mecr49itogciq0c%40group.calendar.google.com&ctz=America%2FNew_York";
 
@@ -172,12 +172,13 @@ handleSubmit(event) {
                                 <Table.Cell>{event.username}</Table.Cell>
                                 <Table.Cell>
                                     <Button floated="right" onClick={() => {
-                                        axios.delete('http://localhost:5000/events/list', {
-                                         //TODO figure this shtuff out
+                                        /*axios.delete('http://localhost:5000/events/list' + name)
+                                        .then(res => console.log(res.message));
+                                        this.setState({
+                                            event: this.state.event.filter(el => el.name !== name)
                                         })
-                                        .then(res => {
-                                            console.log(res.message);
-                                        });
+                                        axios.delete('http://localhost:5000/events/list' + name)*/
+                                        alert('Event ' + event.name + " has been deleted!");
                                         window.location.reload();
                                     }}>Remove</Button>
                                 </Table.Cell>
