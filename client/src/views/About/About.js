@@ -15,7 +15,7 @@ class About extends React.Component {
           </div>
 
           <div className='col2About'>
-            <h1>About the A New Life Line</h1>
+            <h1>About A New Life Line</h1>
             <p>
             A New Life Line is a social enterprise providing assessment and re-entry support in the form of job placement,
              training, and mentorship for men transitioning from incarceration to their communities after they are released.

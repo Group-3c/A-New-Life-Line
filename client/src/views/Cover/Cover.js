@@ -5,9 +5,9 @@ import './Cover.css';
 import num1 from '../../assets/num1.png';
 import num2 from '../../assets/num2.png';
 import num3 from '../../assets/num3.png';
-import step1Img from '../../assets/step1-image.png'
-import step2Img from '../../assets/step2-image.png'
-import step3Img from '../../assets/step3-image.png'
+import step1Img from '../../assets/step1-image.png';
+import step2Img from '../../assets/step2-image.png';
+import step3Img from '../../assets/step3-image.png';
 
 
 class Cover extends React.Component {
@@ -15,7 +15,7 @@ class Cover extends React.Component {
     render() {
         return (
             <div id="cover-content">
-              <h1 id="cover-title">A New Life Line</h1>
+              <h1 id="cover-title">The Tracks</h1>
 
 
               <div id="cover-columns">
