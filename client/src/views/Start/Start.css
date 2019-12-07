@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kalam&display=swap');
 
 #start-page-bg {
   position: relative;
@@ -34,17 +34,22 @@
 }
 
 .text-loop {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 36px;
+  font-family: 'Kalam', cursive;
+  font-size: 32px;
 }
 
 #start-login-button{
   background-color: #c6e5fc;
   border: none;
-  padding: 12px 24px;
+  padding: 5px 8px;
   text-decoration: none;
   font-size: 16px;
   border-radius: 5%;
+}
+
+#start-login-button a {
+  color: #006cf0;
+  padding: 5px 12px;
 }
 
 #learn-more-button {
@@ -57,7 +62,7 @@
   margin-top: 100px;
 }
 
-#get-started-button a, #learn-more-button a {
+#learn-more-button a {
   color: #006cf0;
   padding: 10px 50px;
 }

@@ -19,10 +19,6 @@ function Donate() {
           <div className="donate-button">
             <a href="https://paypal.com" target="_blank" rel="noopener noreferrer" className='donate-link'>Donate Today</a>
           </div>
-
-          <div id="donate-link-button">
-            <button type='button' className="admin-element">Edit Link</button>
-          </div>
         </div>
     );
 }
