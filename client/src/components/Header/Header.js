@@ -23,8 +23,8 @@ const Header = () => {
               <Link className="topnav-link" to="/Calendar" style={{ textDecoration: 'none' }}>Calendar</Link>
 
           </div>
+          
           {/* Profile Icon */}
-
           <div className="topnav-profile">
               <Link to="/Profile"><img src={profileIcon} alt="profile icon">
                 </img></Link>

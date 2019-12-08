@@ -7,6 +7,7 @@ import axios from 'axios';
 
 class AboutParadigmShift extends React.Component {
 
+  //AboutParadigmShift has editable information by admin, so it's connected to backend
   constructor(props){
       super(props);
 
@@ -23,6 +24,8 @@ class AboutParadigmShift extends React.Component {
       }
   }
 
+  //get request to get the current text from the database
+  //NOTE: id value in the get request is hard coded! using this.props.match.params.id did NOT work
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
@@ -59,6 +62,7 @@ class AboutParadigmShift extends React.Component {
     })
   }
 
+  //update requests to database when form is submitted
   onSubmit(e) {
     e.preventDefault();
 
@@ -83,6 +87,8 @@ class AboutParadigmShift extends React.Component {
         <div className="top-paragraph">
           <p>{this.state.text}</p>
         </div>
+
+        {/*Refer to footer.js comments regarding these next two JS elements*/}
 
         <div id="about-ps-edit-text">
         {(this.state.user && this.state.user.permission) === 'admin' &&

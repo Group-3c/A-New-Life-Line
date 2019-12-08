@@ -7,6 +7,7 @@ import axios from 'axios';
 
 class EntTraining extends React.Component{
 
+  //EntrepeneurshipTraining has editable information by admin, so it's connected to backend
   constructor(props){
       super(props);
 
@@ -23,6 +24,8 @@ class EntTraining extends React.Component{
       }
   }
 
+  //get request to get the current text from the database
+  //NOTE: id value in the get request is hard coded! using this.props.match.params.id did NOT work
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
@@ -59,6 +62,7 @@ class EntTraining extends React.Component{
     })
   }
 
+  //update requests to database when form is submitted
   onSubmit(e) {
     e.preventDefault();
 
@@ -85,6 +89,9 @@ class EntTraining extends React.Component{
         </div>
 
         <div id="et-edit-text">
+
+        {/*Refer to footer.js comments regarding these next two JS elements*/}
+        
         {(this.state.user && this.state.user.permission) === 'admin' &&
           <button type='button'
                   className="admin-element"

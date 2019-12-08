@@ -9,6 +9,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//route that handles http post requests to add a new admintext element
 router.route('/add').post((req, res) => {
   const text = req.body.text;
 

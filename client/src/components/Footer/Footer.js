@@ -9,6 +9,7 @@ import axios from 'axios';
 
 class Footer extends React.Component {
 
+    //Footer has editable information by admin, so it's connected to backend
     constructor(props){
         super(props);
 
@@ -28,6 +29,8 @@ class Footer extends React.Component {
         }
     }
 
+  //get requests to get the social media links from the database
+  //NOTE: id values in the get requests are hard coded! using this.props.match.params.id did NOT work
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
@@ -81,6 +84,7 @@ class Footer extends React.Component {
     })
   }
 
+  //update requests to database when form is submitted
   onSubmit(e) {
     e.preventDefault();
 
@@ -117,13 +121,17 @@ class Footer extends React.Component {
             {/* Page Links */}
             <div className="footer-right">
 
+                {/*checks if the user's permission is set to admin before displaying edit button*/}
                 {(this.state.user && this.state.user.permission) === 'admin' &&
                   <div>
                     <button type="button" className='link-edit-button' onClick={this.showForm}>Edit Links</button>
                   </div>
                 }
 
+                {/*calls showForm to allow user to edit current links and submit*/}
                 { this.state.showForm &&
+
+                  //onSubmit calls hideForm at the end so the form is automatically hidden
                   <form className="admin-form" onSubmit={this.onSubmit}>
                     <div className="form-group">
                       <input type="text" placeholder="new Facebook link" value={this.state.fbText} onChange={this.onChangeFBText} />
@@ -136,6 +144,7 @@ class Footer extends React.Component {
                   </form>
                 }
 
+                {/* Social Media buttons*/}
                 <div id="social-media">
                   <a href= {this.state.fbText} target="_blank" rel="noopener noreferrer"><img src = {facebookLogo} alt="facebook logo"
                    className="socialmedia-logo"></img></a>
