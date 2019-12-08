@@ -8,26 +8,19 @@ export default class CreatePost extends Component {
     super(props);
 
     this.onChangeQuestion = this.onChangeQuestion.bind(this);
-    this.onChangeName = this.onChangeName.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       question: '',
-      name: ''
+      name: '',
     }
   }
 
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      console.log(this.state.user);
   }
 
-  onChangeName(e) {
-    this.setState({
-      name: e.target.value
-    });
-  }
 
   onChangeQuestion(e) {
     this.setState({
@@ -43,7 +36,6 @@ export default class CreatePost extends Component {
       name: this.state.user.username
     }
 
-    console.log(post)
 
     axios.post('http://localhost:5000/posts/new-post', post)
       .then(res => console.log(res.data))

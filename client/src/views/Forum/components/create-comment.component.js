@@ -8,8 +8,6 @@ export default class CreateComment extends Component {
     super(props);
 
     this.onChangeMessage = this.onChangeMessage.bind(this);
-    this.onChangeParent = this.onChangeParent.bind(this);
-    this.onChangeName = this.onChangeName.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -21,8 +19,6 @@ export default class CreateComment extends Component {
 
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
-
-      console.log(this.state.user);
       axios.get('http://localhost:5000/posts/' + this.props.match.params.id)
       .then(response => {
         this.setState({posts: response.data})
@@ -32,21 +28,9 @@ export default class CreateComment extends Component {
       })
   }
 
-  onChangeName(e) {
-    this.setState({
-      name: e.target.value
-    });
-  }
-
   onChangeMessage(e) {
     this.setState({
       message: e.target.value
-    });
-  }
-
-  onChangeParent(e) {
-    this.setState({
-      parent: e.target.value
     });
   }
 
@@ -55,10 +39,8 @@ export default class CreateComment extends Component {
 
     const post = {
       message: this.state.message,
-      name: this.state.user.username
+      name: this.state.user.username,
     }
-
-    console.log(post)
 
     axios.post('http://localhost:5000/posts/comment/'+this.props.match.params.id, post)
       .then(res => console.log(res.data))

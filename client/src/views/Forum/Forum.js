@@ -11,6 +11,7 @@ import PostList from "./components/post-list.component";
 import EditPost from "./components/edit-post.component";
 import CreateComment from "./components/create-comment.component";
 import ShowMore from "./components/show-more.component";
+import EditComment from "./components/edit-comment.component";
 
 function Forum() {
     return (
@@ -23,6 +24,7 @@ function Forum() {
           <Route path="/Forum/edit/:id" component={EditPost} />
           <Route path="/Forum/comment/:id" component={CreateComment} />
           <Route path="/Forum/show-more/:id" component={ShowMore} />
+          <Route path="/Forum/edit-comment/:id" component={EditComment} />
         </div>
       </Router>
     );

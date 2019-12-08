@@ -14,7 +14,6 @@ router.route('/new-post').post((req, res) => {
   const question = req.body.question;
   const name = req.body.name;
 
-
   const newPost = new Post({question, name});
 
   newPost.save()
@@ -50,9 +49,9 @@ router.route('/update/:id').post((req, res) => {
 
 
 router.route('/comment/:id').post((req, res) => {
-  const parent = req.params.id
-  const message = req.body.message
-  const name = req.body.name
+  const parent = req.params.id;
+  const message = req.body.message;
+  const name = req.body.name;
 
   const newComment = new Comment({message, name, parent});
 
@@ -68,7 +67,13 @@ router.route('/comment/:id').get((req, res) => {
 });
 
 router.route('/comments/:id').delete((req, res) => {
-  Comment.find({parent: req.params.id})
+  Comment.findAndDelete({parent: req.params.id})
+    .then(() => res.json('Comment deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/comment/:id').delete((req, res) => {
+  Comment.findByIdAndDelete(req.params.id)
     .then(() => res.json('Comment deleted'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -76,6 +81,18 @@ router.route('/comments/:id').delete((req, res) => {
 router.route('/comment/').get((req, res) => {
   Comment.find()
     .then(posts => res.json(posts))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update-comment/:id').post((req, res) => {
+  Comment.findById(req.params.id)
+    .then(comments => {
+      comments.message = req.body.message;
+
+      comments.save()
+        .then(() => res.json('Comment updated'))
+        .catch(err => res.status(400).json('Error: ' + err));
+      })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 

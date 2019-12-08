@@ -1,13 +1,25 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
+
 
 const Post = props => (
   <tr>
     <td>{props.post.question}</td>
     <td>{props.post.name}</td>
     <td>
-      <Link to={"/Forum/edit/"+props.post._id}>edit</Link> | <a href="#" onClick={() => { props.deletePost(props.post._id)}}>delete</a> |
+      <Link to={"/Forum/edit/"+props.post._id}>edit</Link> | <a href="" onClick={() => { props.deletePost(props.post._id)}}>delete</a> |
+      <Link to={"/Forum/comment/"+props.post._id}> comment</Link> | <Link to={"/Forum/show-more/"+props.post._id}> Show Comments</Link>
+    </td>
+  </tr>
+)
+
+const Post2 = props => (
+  <tr>
+    <td>{props.post.question}</td>
+    <td>{props.post.name}</td>
+    <td>
       <Link to={"/Forum/comment/"+props.post._id}> comment</Link> | <Link to={"/Forum/show-more/"+props.post._id}> Show Comments</Link>
     </td>
   </tr>
@@ -21,7 +33,7 @@ export default class PostList extends Component {
     this.state = {posts: []};
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     axios.get('http://localhost:5000/posts/')
       .then(response => {
         this.setState({posts: response.data})
@@ -29,6 +41,8 @@ export default class PostList extends Component {
       .catch((error) => {
         console.log(error);
       })
+    await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
+
   }
 
 
@@ -43,7 +57,12 @@ export default class PostList extends Component {
 
   postList() {
     return this.state.posts.map(currentpost => {
-      return <Post post={currentpost} deletePost={this.deletePost} key={currentpost._id}/>;
+      if (this.state.user.permission === "admin" || this.state.user.username === currentpost.name) {
+        return <Post post={currentpost} deletePost={this.deletePost} key={currentpost._id}/>;
+      }
+      else {
+        return <Post2 post={currentpost} key={currentpost._id}/>;
+      }
     })
   }
 
