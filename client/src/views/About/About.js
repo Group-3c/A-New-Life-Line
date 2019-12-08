@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../app.css';
 import './About.css';
-import tmpImage from '../../assets/image-placeholder.jpg';
+import tmpImage from '../../assets/about-img.jpg';
 
 
 class About extends React.Component {
@@ -33,8 +34,14 @@ class About extends React.Component {
               issues and challenges, and to help each other to overcome obstacles. Through the website we hope to build a
               community of positive individuals.
             </p>
+
+            <div id='abtDonateButton'>
+              <Link to="/Donate"><button type="button" id="about-donate-button"> Support the Company </button></Link>
+            </div>
           </div>
         </div>
+
+
       </div>
     );
   }

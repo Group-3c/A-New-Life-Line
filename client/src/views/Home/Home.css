@@ -71,6 +71,8 @@
   display: inline-block;
 }
 
+
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
@@ -78,9 +80,8 @@
   background-color: #394770;
   min-width: 160px;
   z-index: 1;
-  margin-left: 20%;
+  margin-left: 15%;
 }
-
 
 /* Links inside the dropdown */
 .dropdown-content p {

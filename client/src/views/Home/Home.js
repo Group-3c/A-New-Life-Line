@@ -21,7 +21,7 @@ function Home() {
                   <Link to="/ResumeBuilder"><p>Resume Builder</p></Link>
                 </div>
               </div>
-              <div className="dropdown">
+              <div className="dropdown" id="dropdown-2">
                 <button className="dropbutton">Skill Building</button>
                 <div className="dropdown-content">
                   <Link to="/AboutSkillBuilding"><p>About</p></Link>
