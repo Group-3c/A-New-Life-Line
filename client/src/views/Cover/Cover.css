@@ -76,3 +76,24 @@ h1, h3 {
   font-size: 12px;
   color: gray;
 }
+
+
+#cover-donate-button {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #c6e5fc;
+  border: none;
+  padding: 5px 8px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5%;
+}
+
+#cover-donate-button a {
+  color: #006cf0;
+  padding: 5px 12px;
+}
+
+#cover-donate-button:hover { background-color: #B1C7DA;}
+#cover-donate-button:hover a {text-decoration: none;}

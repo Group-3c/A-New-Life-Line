@@ -61,14 +61,14 @@ const App = () => {
             <Route exact path="/Forum" component={Forum} />
             <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Profile" component={Profile} />
+            <div className='footer'>
+              <Footer />
+            </div>
           </AuthRoute>
 
           <Route component={NotFound}/>
 
           </Switch>
-        <div className='footer'>
-          <Footer />
-        </div>
       </div>
 
 

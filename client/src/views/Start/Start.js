@@ -27,6 +27,10 @@ class Start extends React.Component {
 
                 <button type="button" id="learn-more-button"><Link to="/Cover">Learn More</Link></button>
               </div>
+              <div className="donate-button-div">
+                <button type="button" id='start-donate-button'> <Link to="/Donate">Donate</Link></button>
+              </div>
+
             </div>
         );
    }

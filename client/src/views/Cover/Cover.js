@@ -50,6 +50,10 @@ class Cover extends React.Component {
               <div id="icon-credits">Icons made by <a href="https://www.flaticon.com/authors/payungkead" title="Payungkead">Payungkead</a> from
               <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
+              <div className="donate-button-div">
+                <button type="button" id='cover-donate-button'> <Link to="/Donate">Donate</Link></button>
+              </div>
+
             </div>
         );
    }

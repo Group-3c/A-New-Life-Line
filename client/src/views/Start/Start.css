@@ -38,7 +38,7 @@
   font-size: 32px;
 }
 
-#start-login-button{
+#start-login-button, #start-donate-button{
   background-color: #c6e5fc;
   border: none;
   padding: 5px 8px;
@@ -47,7 +47,7 @@
   border-radius: 5%;
 }
 
-#start-login-button a {
+#start-login-button a , #start-donate-button a{
   color: #006cf0;
   padding: 5px 12px;
 }
@@ -72,10 +72,22 @@
 }
 
 
-#start-login-button:hover { background-color: #B1C7DA;}
+#start-login-button:hover, #start-donate-button:hover { background-color: #B1C7DA;}
 #learn-more-button:hover { background-color: #1e206b;}
-#start-login-button:hover a, #learn-more-button:hover a {text-decoration: none;}
+#start-login-button:hover a, #learn-more-button:hover a, #start-donate-button:hover a {text-decoration: none;}
 
 #learn-more-button:hover a {
   color: white;
+}
+
+.donate-button-div {
+  position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#start-donate-button {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
