@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../app.css';
 import './AboutParadigmShift.css';
-import tmpImage from '../../assets/image-placeholder.jpg';
+import tmpImage from '../../assets/step1-image.png';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
@@ -79,9 +79,7 @@ class AboutParadigmShift extends React.Component {
     return (
       <div className="about-paradigm-shift-page-content">
         <img src = {tmpImage} id="about-ps-image"></img>
-        <div id="about-ps-edit-image">
-          <button type='button' className="admin-element">Edit Image</button>
-        </div>
+
         <div className="top-paragraph">
           <p>{this.state.text}</p>
         </div>
@@ -112,6 +110,8 @@ class AboutParadigmShift extends React.Component {
         }
 
         </div>
+        <div id="icon-credits">Icons made by <a href="https://www.flaticon.com/authors/payungkead" title="Payungkead">Payungkead</a> from
+        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
       </div>
     );
   }
