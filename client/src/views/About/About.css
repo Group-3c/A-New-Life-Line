@@ -42,3 +42,19 @@
 button {
   color: #2A324B;
 }
+
+#abtDonateButton {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#about-donate-button {
+  background-color: #0f1147;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+}
+
+#about-donate-button:hover {
+  background-color: #17195c;
+}

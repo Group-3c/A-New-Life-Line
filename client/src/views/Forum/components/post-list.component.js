@@ -17,6 +17,9 @@ export default class PostList extends Component {
   constructor(props) {
     super(props);
 
+    console.log("props are: ");
+    console.log(props);
+
     this.deletePost = this.deletePost.bind(this);
     this.state = {posts: []};
   }
@@ -33,6 +36,9 @@ export default class PostList extends Component {
 
 
   deletePost(id) {
+    console.log("ID value in delete function is: ");
+    console.log(id);
+
     axios.delete('http://localhost:5000/posts/' + id)
       .then(res => console.log(res.data));
     this.setState({
@@ -45,6 +51,7 @@ export default class PostList extends Component {
     return this.state.posts.map(currentpost => {
       return <Post post={currentpost} deletePost={this.deletePost} key={currentpost._id}/>;
     })
+
   }
 
   render() {

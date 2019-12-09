@@ -20,10 +20,10 @@ class Register extends React.Component{
     }
 
     componentDidMount(){
-        try {    
+        try {
             if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
                 this.props.history.push('/Home');
-            }       
+            }
         } catch(err) {
             this.props.history.push('/Register');
         }
@@ -75,7 +75,12 @@ class Register extends React.Component{
                         <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
                         <Form.Input type="password" name="confirmPassword" placeholder="confirmPassword" value={confirmPassword} onChange={this.changeHandler}/>
                     </Form.Group>
-                    <Button type="submit">Register</Button>
+                    <div id="register-content">
+                      <Button type="submit">Register</Button>
+                      <br />
+
+                      <Link to="/Login" id="login-link">Already a member? Log In</Link>
+                    </div>
                 </Form>
             </Container>
             <br/>

@@ -19,12 +19,12 @@ class Login extends React.Component{
 
     componentDidMount(){
 
-        try {    
+        try {
             if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
                 this.props.history.push('/Home');
-            }       
+            }
         } catch(err) {
-            
+
             this.props.history.push('/Login');
         }
     }
@@ -67,8 +67,12 @@ class Login extends React.Component{
                     <Form.Group widths='equal'>
                         <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
                     </Form.Group>
-                    <Button type="submit">Login</Button>
-                    <Link to="/Register" >Register</Link>
+                    <div id="login-content">
+                        <Button type="submit">Login</Button>
+                        <br />
+
+                        <Link to="/Register" id="register-link">Not a member? Register</Link>
+                    </div>
                 </Form>
             </Container>
             <br/>

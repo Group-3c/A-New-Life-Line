@@ -23,8 +23,11 @@ import Footer from "./components/Footer/Footer"
 import './app.css';
 import Register from "./views/Register/Register"
 import Login from "./views/Login/Login"
+import Start from "./views/Start/Start"
+import Cover from "./views/Cover/Cover"
+import ResumeBuilder from "./views/ResumeBuilder/ResumeBuilder"
 import AuthRoute from "./components/AuthRoute"
-import 'semantic-ui-css/semantic.min.css';
+import 'semantic-ui-css/semantic.min.css'
 
 
 const App = () => {
@@ -33,14 +36,17 @@ const App = () => {
       <Header />
       <div className='content-wrap'>
         <Switch>
+          <Route exact path="/Start" component={Start} />
+          <Route exact path="/Cover" component={Cover} />
           <Route exact path="/Register" component={Register} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/About" component={About} />
           <Route exact path="/Donate" component={Donate} />
           <Route exact path="/">
-            <Redirect to="/Login" />
+            <Redirect to="/Start" />
           </Route>
           <AuthRoute>
+
             <Route exact path="/Home" component={Home} />
             <Route exact path="/MentorMeetings" component={MentorMeetings} />
             <Route exact path="/EducationalOpportunities" component={EducationalOpportunities} />
@@ -51,17 +57,21 @@ const App = () => {
             <Route exact path="/AboutParadigmShift" component={AboutParadigmShift} />
             <Route exact path="/AboutSkillBuilding" component={AboutSkillBuilding} />
             <Route exact path="/AboutEntrepeneurship" component={AboutEntrepeneurship} />
+            <Route exact path="/ResumeBuilder" component={ResumeBuilder} />
             <Route exact path="/Forum" component={Forum} />
             <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="/Profile" component={Profile} />
+            <div className='footer'>
+              <Footer />
+            </div>
           </AuthRoute>
+
           <Route component={NotFound}/>
+
           </Switch>
       </div>
 
-      <div className='footer'>
-        <Footer />
-      </div>
+
     </div>
   );
 };
