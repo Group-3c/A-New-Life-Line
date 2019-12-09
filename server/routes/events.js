@@ -5,6 +5,7 @@ const Events = require('../models/events');
 router.get('/list', function(req, res){
     Events.find({}, function(err, events) {
         var eventArray = [];
+
         events.forEach(function(event) {
           eventArray.push(event);
         });
@@ -12,11 +13,11 @@ router.get('/list', function(req, res){
       });
 });
 
-router.delete('/list/:_id', function(req, res, next){
-  Events.findByIdAndDelete({name: req.params.name}).then(function(event){
-    res.send(event);
-  });
-})
+router.route('/:id').delete((req, res) => {
+  Events.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Event deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/new-event').post((req, res) => {
     const name = req.body.name;
