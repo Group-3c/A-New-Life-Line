@@ -1,8 +1,10 @@
 import React from 'react';
+import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Calendar.css';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
+import { Button, Container, Grid, Table } from 'semantic-ui-react';
 
 const calendarEmbed = "https://calendar.google.com/calendar/embed?src=9gkad3t3of6mecr49itogciq0c%40group.calendar.google.com&ctz=America%2FNew_York";
 
@@ -17,6 +19,7 @@ constructor(props) {
     description: '',
     address: '',
     username: '',
+    list: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +27,9 @@ constructor(props) {
     async componentDidMount() {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
         console.log(this.state.user)
+
+        await axios.get('http://localhost:5000/events/list')
+            .then(res => this.setState({list:res.data}));
     }
 
 handleChange(event) {
@@ -38,6 +44,9 @@ handleSubmit(event) {
     + " \nEvent Address: " + this.state.address
     + " \nUsername: " + this.state.user.username
     );
+
+    window.location.reload();
+
     event.preventDefault();
     const Event = {
         name: this.state.name,
@@ -61,7 +70,7 @@ handleSubmit(event) {
 
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
-
+                    
                         <label for="eventname">Event Name</label>
                             <input
                                 id="eventname"
@@ -135,9 +144,48 @@ handleSubmit(event) {
                             required
                             />
 
-                    <input type="submit" value="Submit" id="calendar-submit"/>
+                    <input type="submit" value="Submit"/>
                 </form>
             </div>
+            {(this.state.user && this.state.list && this.state.user.permission) === 'admin' &&
+            <Container>
+                    <Table celled>
+                        <Table.Row>
+                            <Table.HeaderCell>Event Name</Table.HeaderCell>
+                            <Table.HeaderCell>Month</Table.HeaderCell>
+                            <Table.HeaderCell>Date</Table.HeaderCell>
+                            <Table.HeaderCell>Type</Table.HeaderCell>
+                            <Table.HeaderCell>Description</Table.HeaderCell>
+                            <Table.HeaderCell>Address</Table.HeaderCell>
+                            <Table.HeaderCell>Username</Table.HeaderCell>
+                            <Table.HeaderCell>Remove Listing</Table.HeaderCell>
+                        </Table.Row>
+                    {this.state.list.map(event => {
+                            return(
+                            <Table.Row>
+                                <Table.Cell>{event.name}</Table.Cell>
+                                <Table.Cell>{event.month}</Table.Cell>
+                                <Table.Cell>{event.date}</Table.Cell>
+                                <Table.Cell>{event.type}</Table.Cell>
+                                <Table.Cell>{event.description}</Table.Cell>
+                                <Table.Cell>{event.address}</Table.Cell>
+                                <Table.Cell>{event.username}</Table.Cell>
+                                <Table.Cell>
+                                    <Button floated="right" onClick={() => {
+                                        axios.delete('http://localhost:5000/events/list', {
+                                         //TODO figure this shtuff out
+                                        })
+                                        .then(res => {
+                                            console.log(res.message);
+                                        });
+                                        window.location.reload();
+                                    }}>Remove</Button>
+                                </Table.Cell>
+                            </Table.Row>)
+                    })}
+                    </Table>
+                </Container>
+                }
         </div>
         );
     }
