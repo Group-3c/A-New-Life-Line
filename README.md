@@ -5,10 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Credits
 These are the organizations that we used to implement our web app:
-React Semantic UI
-Bootstrap
-Zoom
-Google Calendar
+ - #### React Semantic UI
+ - #### Bootstrap
+ - #### Zoom API
+ - #### Google Calendar
 
 ## Project Features
 List of all project features implemented and associated screenshots include landing or home page
