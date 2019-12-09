@@ -1,7 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const Events = require('../models/events');
 
-let Events = require('../models/events');
+router.get('/list', function(req, res){
+    Events.find({}, function(err, events) {
+        var eventArray = [];
+        events.forEach(function(event) {
+          eventArray.push(event);
+        });
+        res.send(eventArray);  
+      });
+});
+
+router.delete('/list/:_id', function(req, res, next){
+  Events.findByIdAndDelete({name: req.params.name}).then(function(event){
+    res.send(event);
+  });
+})
 
 router.route('/new-event').post((req, res) => {
     const name = req.body.name;
