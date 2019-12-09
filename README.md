@@ -11,15 +11,13 @@ These are the organizations that we used to implement our web app:
  - #### Google Calendar
 
 ## Project Features
-List of all project features implemented and associated screenshots include landing or home page
+[Doc to Project Features Implemented](https://docs.google.com/document/d/1ZRvYgp2L42KXNNNHTqhJy8N5ng8bLoOAT5EG6BKgoNs/edit?usp=sharing)
 
 ## How to Run Project
-Locally: see available scripts below
-Heroku: idk lol
+See available scripts below to run on the command line.
 
 ## How to Update Database/Server Connections
 Edit the config file so that your MongoDB URI is updated to the correct database.
-
 
 ## File structure
 #### `client` - Holds the client application
