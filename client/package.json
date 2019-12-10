@@ -23,7 +23,7 @@
     "react-text-loop": "^2.2.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
     "zoomus-jssdk": "^1.6.1"
   },
   "scripts": {
