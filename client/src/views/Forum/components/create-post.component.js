@@ -15,19 +15,19 @@ export default class CreatePost extends Component {
       name: '',
     }
   }
-
+//gets current user data
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
   }
 
-
+//sets question to input value
   onChangeQuestion(e) {
     this.setState({
       question: e.target.value
     });
   }
-
+//on submit creates new post and send user back to main Forum page
   onSubmit(e) {
     e.preventDefault();
 

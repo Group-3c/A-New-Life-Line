@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 
-
+//For admin/user who posted
 const Post = props => (
   <tr>
     <td>{props.post.question}</td>
@@ -14,7 +14,7 @@ const Post = props => (
     </td>
   </tr>
 )
-
+//for users unconnected to the post
 const Post2 = props => (
   <tr>
     <td>{props.post.question}</td>
@@ -32,7 +32,7 @@ export default class PostList extends Component {
     this.deletePost = this.deletePost.bind(this);
     this.state = {posts: []};
   }
-
+//gets current user data and lists all posts
   async componentDidMount() {
     axios.get('http://localhost:5000/posts/')
       .then(response => {
@@ -45,7 +45,7 @@ export default class PostList extends Component {
 
   }
 
-
+//deletes post from database
   deletePost(id) {
     axios.delete('http://localhost:5000/posts/' + id)
       .then(res => console.log(res.data));
@@ -54,7 +54,7 @@ export default class PostList extends Component {
     })
     axios.delete('http://localhost:5000/posts/comment/' + id)
   }
-
+//lists the posts based on admin/user
   postList() {
     return this.state.posts.map(currentpost => {
       if (this.state.user.permission === "admin" || this.state.user.username === currentpost.name) {

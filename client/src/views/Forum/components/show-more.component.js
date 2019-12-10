@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 
-
+//For admin or user who posted
 const Comment = props => (
   <tr>
     <td>{props.comment.message}</td>
@@ -13,7 +13,7 @@ const Comment = props => (
     </td>
   </tr>
 )
-
+//for users not connected to comment
 const Comment2 = props => (
   <tr>
     <td>{props.comment.message}</td>
@@ -32,7 +32,7 @@ export default class CommentList extends Component{
       posts: []
     };
   }
-
+//gets current user data, original post and comments associated with it
   async componentDidMount() {
     axios.get('http://localhost:5000/posts/comment/'+ this.props.match.params.id)
       .then(response => {
@@ -52,6 +52,7 @@ export default class CommentList extends Component{
     await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
   }
 
+//deletes comment from database and sends back to main forum page
   deleteComment(id) {
     axios.delete('http://localhost:5000/posts/comment/' + id)
       .then(res => console.log(res.data));
@@ -61,6 +62,7 @@ export default class CommentList extends Component{
     window.location = '/Forum';
   }
 
+//lists comments based on current user permission
   commentList() {
     return this.state.comments.map(currentComment => {
       if (this.state.user.permission === "admin" || this.state.user.username === currentComment.name) {

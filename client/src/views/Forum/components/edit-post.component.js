@@ -12,13 +12,13 @@ export default class EditPost extends Component {
       question: ''
     }
   }
-
+//sets question from input value
   onChangeQuestion(e) {
     this.setState({
       question: e.target.value
     })
   }
-
+//sets post on submit and returns to main forum page
   onSubmit(e) {
     e.preventDefault();
 

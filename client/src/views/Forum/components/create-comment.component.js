@@ -17,6 +17,7 @@ export default class CreateComment extends Component {
     }
   }
 
+//gets current user data and current post data
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
       axios.get('http://localhost:5000/posts/' + this.props.match.params.id)
@@ -27,22 +28,22 @@ export default class CreateComment extends Component {
         console.log(error);
       })
   }
-
+//for input message
   onChangeMessage(e) {
     this.setState({
       message: e.target.value
     });
   }
-
+//creates new comment on submit and sends user back to Forum main page
   onSubmit(e) {
     e.preventDefault();
 
-    const post = {
+    const comment = {
       message: this.state.message,
       name: this.state.user.username,
     }
 
-    axios.post('http://localhost:5000/posts/comment/'+this.props.match.params.id, post)
+    axios.post('http://localhost:5000/posts/comment/'+this.props.match.params.id, comment)
       .then(res => console.log(res.data))
 
 

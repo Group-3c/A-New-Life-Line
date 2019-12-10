@@ -12,13 +12,13 @@ export default class EditComment extends Component {
       message: ''
     }
   }
-
+//used to change message
   onChangeMessage(e) {
     this.setState({
       message: e.target.value
     })
   }
-
+//sets message to new input value on submit
   onSubmit(e) {
     e.preventDefault();
 
