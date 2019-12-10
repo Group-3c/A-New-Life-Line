@@ -15,14 +15,17 @@ class Profile extends React.Component {
         }
     }
 
+    //find the user that is currently logged in, authroute means you need to be logged in to access
+    //this page so no need to account for not being logged in
     async componentDidMount() {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-
+        //returns the list of all users for if admin is logged in
         await axios.get('http://localhost:5000/users/list')
             .then(res => this.setState({list:res.data}));
     }
 
+    //display user data
     render() {
         return (
             <div className="App">
@@ -60,6 +63,7 @@ class Profile extends React.Component {
                 </Container>
                 }
                 <br />
+                {/*shows list of all users if an admin*/}
                 {(this.state.user && this.state.list && this.state.user.permission) === 'admin' &&
                 <Container>
                     <Table celled>
@@ -81,6 +85,7 @@ class Profile extends React.Component {
                                 <Table.Cell>
                                     {account.permission}
                                     <Button floated="right" onClick={() => {
+                                        //function for admin to change permissions
                                         axios.post('http://localhost:5000/users/permission', {
                                             username:account.username,
                                             permission:account.permission

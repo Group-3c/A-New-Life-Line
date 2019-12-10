@@ -20,6 +20,7 @@ class Register extends React.Component{
     }
 
     componentDidMount(){
+        //check to see if someone is logged in, if so, send to homepage
         try {
             if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
                 this.props.history.push('/Home');
@@ -29,6 +30,7 @@ class Register extends React.Component{
         }
     }
 
+    //for register form
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -44,6 +46,7 @@ class Register extends React.Component{
             confirmPassword: this.state.confirmPassword
         }
 
+        //connects to database to add new user
         axios.post('http://localhost:5000/users/register', user)
             .then(res => {
                 if (res.data === "Added")
@@ -56,6 +59,7 @@ class Register extends React.Component{
             });
     }
 
+    //displays register form and errors
     render(){
         const {name, email, username, password, confirmPassword} = this.state;
 

@@ -42,7 +42,7 @@ class Login extends React.Component{
             password: this.state.password
         }
 
-        
+        //connects to the server to search for user and creates web token if info is correct
         axios.post('http://localhost:5000/users/login', user)
             .then(res => {
                 if (res.data.message === "Login")
@@ -55,6 +55,7 @@ class Login extends React.Component{
             });
     }
 
+    //form display and errors
     render(){
         const {username, password} = this.state;
 
