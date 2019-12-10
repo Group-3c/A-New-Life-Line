@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Login.css';
 import backgroundImg from '../../assets/background-img.jpg';
 import jwt from 'jsonwebtoken';
-import { Button, Container, Form } from 'semantic-ui-react';
+import { Button, Container, Form, Grid } from 'semantic-ui-react';
 
 class Login extends React.Component{
     constructor(props){
@@ -12,22 +12,24 @@ class Login extends React.Component{
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            errors: ''
         };
     }
 
     componentDidMount(){
-
-        try {    
+        //check to see if someone is logged in, if so, send to homepage
+        try {
             if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
                 this.props.history.push('/Home');
-            }       
+            }
         } catch(err) {
-            
+
             this.props.history.push('/Login');
         }
     }
 
+    //for login form
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -40,18 +42,20 @@ class Login extends React.Component{
             password: this.state.password
         }
 
-        axios.post('https://new-life-line.herokuapp.com/users/login', user)
+        //connects to the server to search for user and creates web token if info is correct
+        axios.post('http://localhost:5000/users/login', user)
             .then(res => {
                 if (res.data.message === "Login")
                 {
                     localStorage.setItem('jwtoken', res.data.token);
                     this.props.history.push('/Home');
                 } else {
-                    console.log(res.data.message);
+                    this.setState({errors: res.data.message});
                 }
             });
     }
 
+    //form display and errors
     render(){
         const {username, password} = this.state;
 
@@ -66,10 +70,21 @@ class Login extends React.Component{
                     <Form.Group widths='equal'>
                         <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
                     </Form.Group>
-                    <Button type="submit">Login</Button>
-                    <Link to="/Register" >Register</Link>
+                    <div id="login-content">
+                        <Button type="submit">Login</Button>
+                        <br />
+
+                        <Link to="/Register" id="register-link">Not a member? Register</Link>
+                    </div>
                 </Form>
             </Container>
+            <br/>
+            {this.state.errors &&
+            <Container>
+                <Grid>
+                    <Grid.Row centered>{this.state.errors}</Grid.Row>
+                </Grid>
+            </Container>}
             </>
         );
     }

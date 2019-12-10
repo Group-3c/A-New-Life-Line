@@ -1,46 +1,50 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
+import { Link } from 'react-router-dom';
 import '../../app.css';
 import './About.css';
-import facebookLogo from '../../assets/facebook.png';
-import linkedinLogo from '../../assets/linkedin.png';
-import tmpImage from '../../assets/image-placeholder.jpg';
+import tmpImage from '../../assets/about-img.jpg';
 
-function About() {
+
+class About extends React.Component {
+
+  render() {
     return (
       <div className="App">
         <div className='rowAbout'>
           <div className='col1About'>
             <img src = {tmpImage}></img>
-
-            {/*ADMIN ELEMENT*/}
-            <button type='button' className="admin-element" id="image-button">Edit Image</button>
           </div>
 
           <div className='col2About'>
-            <p id="about-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis nunc nec elit rutrum consectetur
-              a a enim. Nulla vel lobortis est. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-              per inceptos himenaeos. Vestibulum et libero turpis. Nulla facilisi. Sed viverra faucibus velit, ac
-              dapibus risus dictum eget. Proin vel aliquam elit, id porttitor tellus. Quisque dolor urna, feugiat
-              nec tristique sit amet, tempus ac ipsum.
+            <h1>About A New Life Line</h1>
+            <p>
+            A New Life Line is a social enterprise providing assessment and re-entry support in the form of job placement,
+             training, and mentorship for men transitioning from incarceration to their communities after they are released.
+             A New Life Line combines both in-person and online, asynchronous support from other formerly incarcerated persons
+              along their journey. </p>
+
+            <br />
+            <h1>About the Creator</h1>
+            <p>
+              My name is Steven Revels, my company is A New Life Line, and my goal is to bring a divided group of people
+              together... felons! Don’t looked shocked, you heard me right: felons! The word alone is intimidating and
+              makes people back off. I want to change that. Many felons in the USA have a hard time getting
+              ahead. That’s where I come in! Everyone goes through chapters in their life where they don't make the best
+              decisions. This program will be something like a community for felons, to progress, to talk about their different
+              issues and challenges, and to help each other to overcome obstacles. Through the website we hope to build a
+              community of positive individuals.
             </p>
 
-            {/*ADMIN ELEMENT*/}
-            <button type='button' className="admin-element" id="about-button">Edit Text</button>
-
-            <div id="social-media">
-              <a href="https://www.facebook.com/" target="_blank"><img src = {facebookLogo} alt="facebook logo"
-               className="socialmedia-logo"></img></a>
-              <a href="https://www.linkedin.com" target="_blank"><img src = {linkedinLogo} alt="linkedIn logo"
-               className="socialmedia-logo"></img></a>
+            <div id='abtDonateButton'>
+              <Link to="/Donate"><button type="button" id="about-donate-button"> Support the Company </button></Link>
             </div>
           </div>
-
         </div>
+
 
       </div>
     );
+  }
 }
 
 export default About;

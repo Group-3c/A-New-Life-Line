@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Profile.css';
 import { Button, Container, Grid, Table } from 'semantic-ui-react';
@@ -16,16 +15,17 @@ class Profile extends React.Component {
         }
     }
 
+    //find the user that is currently logged in, authroute means you need to be logged in to access
+    //this page so no need to account for not being logged in
     async componentDidMount() {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-        
-        await axios.post('https://new-life-line.herokuapp.com/users/list')
+        //returns the list of all users for if admin is logged in
+        await axios.get('http://localhost:5000/users/list')
             .then(res => this.setState({list:res.data}));
-        
-        console.log(this.state.list);
     }
 
+    //display user data
     render() {
         return (
             <div className="App">
@@ -58,11 +58,12 @@ class Profile extends React.Component {
                             localStorage.removeItem('jwtoken');
                             window.location.reload();
                             }}>Logout</Button>
-                        </Grid.Row>                    
+                        </Grid.Row>
                     </Grid>
                 </Container>
                 }
                 <br />
+                {/*shows list of all users if an admin*/}
                 {(this.state.user && this.state.list && this.state.user.permission) === 'admin' &&
                 <Container>
                     <Table celled>
@@ -84,8 +85,9 @@ class Profile extends React.Component {
                                 <Table.Cell>
                                     {account.permission}
                                     <Button floated="right" onClick={() => {
-                                        axios.post('https://new-life-line.herokuapp.com/users/permission', {
-                                            username:account.username, 
+                                        //function for admin to change permissions
+                                        axios.post('http://localhost:5000/users/permission', {
+                                            username:account.username,
                                             permission:account.permission
                                         })
                                         .then(res => {

@@ -7,6 +7,8 @@ const path = require('path'),
     users = require('../routes/users'),
     cors = require('cors');
     eventRouter = require('../routes/events');
+    postsRouter = require('../routes/posts');
+    adminTextRouter = require('../routes/adminText')
 
 module.exports.init = () => {
     /* 
@@ -47,8 +49,9 @@ module.exports.init = () => {
     }))
 
     app.use('/users', users);
-    app.use('/events', eventRouter)
+    app.use('/events', eventRouter);
+    app.use('/posts', postsRouter);
+    app.use('/adminText', adminTextRouter);
 
     return app
 }
-

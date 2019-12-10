@@ -24,17 +24,35 @@
 .buttonDiv {
   margin-top: 20px;
   display: inline-block;
-  margin-left: 42.5%;
+  margin-left: 22.5%;
 }
 .footer-left {
   display: inline;
   margin-left: 10px;
-  color: white;
 }
+
+.footer-link {
+  color: white;
+  margin-left: 20px;
+}
+
+
 .footer-right {
   display: inline;
   float: right;
-  margin-top: 3%;
+  margin-top: 2%;
   margin-right: 10px;
   color: white;
+}
+#socialmedia {
+  display: inline;
+}
+.socialmedia-logo {
+  margin-right: 10px;
+}
+
+.link-edit-button {
+  font-size: 8px;
+  margin-bottom: 2px;
+  margin-left: 10px;
 }

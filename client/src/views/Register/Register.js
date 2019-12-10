@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
 import jwt from 'jsonwebtoken';
-import { Button, Container, Form } from 'semantic-ui-react';
+import { Button, Container, Form, Grid } from 'semantic-ui-react';
 
 class Register extends React.Component{
     constructor(props){
@@ -20,15 +20,17 @@ class Register extends React.Component{
     }
 
     componentDidMount(){
-        try {    
+        //check to see if someone is logged in, if so, send to homepage
+        try {
             if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
                 this.props.history.push('/Home');
-            }       
+            }
         } catch(err) {
             this.props.history.push('/Register');
         }
     }
 
+    //for register form
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -44,7 +46,8 @@ class Register extends React.Component{
             confirmPassword: this.state.confirmPassword
         }
 
-        axios.post('https://new-life-line.herokuapp.com/users/register', user)
+        //connects to database to add new user
+        axios.post('http://localhost:5000/users/register', user)
             .then(res => {
                 if (res.data === "Added")
                 {
@@ -56,6 +59,7 @@ class Register extends React.Component{
             });
     }
 
+    //displays register form and errors
     render(){
         const {name, email, username, password, confirmPassword} = this.state;
 
@@ -75,9 +79,30 @@ class Register extends React.Component{
                         <Form.Input type="password" name="password" placeholder="password" value={password} onChange={this.changeHandler}/>
                         <Form.Input type="password" name="confirmPassword" placeholder="confirmPassword" value={confirmPassword} onChange={this.changeHandler}/>
                     </Form.Group>
-                    <Button type="submit">Register</Button>
+                    <div id="register-content">
+                      <Button type="submit">Register</Button>
+                      <br />
+
+                      <Link to="/Login" id="login-link">Already a member? Log In</Link>
+                    </div>
                 </Form>
             </Container>
+            <br/>
+            {this.state.errors &&
+            <Container>
+                <Grid>
+                    <Grid.Column>
+                        {this.state.errors.map(error => {
+                            return(
+                                <>
+                                <Grid.Row>{error}</Grid.Row>
+                                <br/>
+                                </>
+                            )
+                        })}
+                    </Grid.Column>
+                </Grid>
+            </Container>}
             </>
         );
     }

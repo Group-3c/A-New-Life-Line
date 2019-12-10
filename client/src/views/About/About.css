@@ -43,8 +43,18 @@ button {
   color: #2A324B;
 }
 
-.socialmedia-logo {
-  margin-top: 25%;
-  margin-left: 10px;
-  margin-right: 10px;
+#abtDonateButton {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#about-donate-button {
+  background-color: #0f1147;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+}
+
+#about-donate-button:hover {
+  background-color: #17195c;
 }

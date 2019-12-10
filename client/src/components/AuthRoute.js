@@ -13,6 +13,7 @@ class AuthRoute extends React.Component{
     }
 
     async componentDidMount(){
+        //checks if there is a user logged in, sends to login page if no user
         try {
             await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
         } catch(err) {
@@ -26,12 +27,14 @@ class AuthRoute extends React.Component{
     }
 
     render(){
+        //waits for user check to finish
         if (this.state.user === undefined){
             return (
                 <h1>Loading...</h1>
             )
         }
 
+        //displays protected pages
         return (
             <div>
                 {this.props.children}

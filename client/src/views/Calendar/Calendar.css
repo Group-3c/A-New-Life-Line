@@ -6,12 +6,12 @@
 }
 
 .calendar {
-    position: relative; 
-    padding-bottom: 50%; 
+    position: relative;
+    padding-bottom: 50%;
     overflow: hidden;
     margin-top: 20px;
     margin-bottom: 20px;
-    left: 5%; 
+    left: 5%;
     height: 120px;
 }
     .calendar iframe {
@@ -32,31 +32,22 @@ input[type=text], select, textarea {
     hyphens: auto;
 }
 
-input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
 .field1{
     float:left;
 }
 
-input[type=submit] {
+#calendar-submit {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
+
+#calendar-submit:hover {
+    background-color: #45a049;
+}
 
 .column1 {
     float: left;
@@ -79,5 +70,3 @@ input[type=submit] {
 .textheight {
     padding: 6px;
 }
-
-

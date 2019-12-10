@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../../app.css';
 import './Header.css';
 import profileIcon from '../../assets/user.png';
-import {Button} from 'semantic-ui-react';
 import logo from '../../assets/logo.png';
 
 const Header = () => {
@@ -11,7 +10,7 @@ const Header = () => {
       <div className='topnav'>
           {/* Logo */}
           <div className="topnav-logo">
-            <Link id="logo-link" to="/">
+            <Link id="logo-link" to="/Home">
                 <img src={ logo } alt="Site logo" />
             </Link>
           </div>
@@ -24,14 +23,14 @@ const Header = () => {
               <Link className="topnav-link" to="/Calendar" style={{ textDecoration: 'none' }}>Calendar</Link>
 
           </div>
+          
           {/* Profile Icon */}
-      
           <div className="topnav-profile">
               <Link to="/Profile"><img src={profileIcon} alt="profile icon">
                 </img></Link>
           </div>
       </div>
-                
+
     )
 }
 

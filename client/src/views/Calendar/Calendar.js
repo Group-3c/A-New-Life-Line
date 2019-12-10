@@ -3,11 +3,15 @@ import logo from '../../assets/logo.svg';
 import '../../app.css';
 import './Calendar.css';
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
+import { Button, Container, Table } from 'semantic-ui-react';
 
+//embed for the calendar
 const calendarEmbed = "https://calendar.google.com/calendar/embed?src=9gkad3t3of6mecr49itogciq0c%40group.calendar.google.com&ctz=America%2FNew_York";
 
 class Calendar extends React.Component {
 
+//placeholder property of '' for each characteristic of the state
 constructor(props) {
     super(props);
     this.state = {name: '',
@@ -16,22 +20,38 @@ constructor(props) {
     type: '',
     description: '',
     address: '',
+    username: '',
+    list: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     }
+    //if user has credentials that provide a secret, get the list of events from axios
+    async componentDidMount() {
+        await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
+        console.log(this.state.user)
 
+        await axios.get('http://localhost:5000/events/list')
+            .then(res => this.setState({list:res.data}));
+    }
+//on event submission, change values from '' to the field value submitted
 handleChange(event) {
     this.setState({[event.target.name]: event.target.value})
     }
 
+//alerts user that event has been submitted with details of event
 handleSubmit(event) {
     alert('Your event has been submitted! \n\nEvent name: ' + this.state.name
     + " \nEvent Date: " + this.state.month + "/" + this.state.date
     + " \nEvent Type: " + this.state.type
     + " \nEvent Description: " + this.state.description
     + " \nEvent Address: " + this.state.address
+    + " \nUsername: " + this.state.user.username
     );
+
+    window.location.reload();
+
+    //posting event details to backend with axios.post, along with username
     event.preventDefault();
     const Event = {
         name: this.state.name,
@@ -39,12 +59,14 @@ handleSubmit(event) {
         date: this.state.date,
         type: this.state.type,
         description: this.state.description,
-        address: this.state.address
+        address: this.state.address,
+        username: this.state.user.username
     }
     axios.post('http://localhost:5000/events/new-event', Event)
         .then(res => console.log(res.data))
 }
 
+//rendering the page
  render() {
     return (
         <div className="App">
@@ -131,6 +153,42 @@ handleSubmit(event) {
                     <input type="submit" value="Submit"/>
                 </form>
             </div>
+            {(this.state.user && this.state.list && this.state.user.permission) === 'admin' &&
+            <Container>
+                    <Table celled>
+                        <Table.Row>
+                            <Table.HeaderCell>Event Name</Table.HeaderCell>
+                            <Table.HeaderCell>Month</Table.HeaderCell>
+                            <Table.HeaderCell>Date</Table.HeaderCell>
+                            <Table.HeaderCell>Type</Table.HeaderCell>
+                            <Table.HeaderCell>Description</Table.HeaderCell>
+                            <Table.HeaderCell>Address</Table.HeaderCell>
+                            <Table.HeaderCell>Username</Table.HeaderCell>
+                            <Table.HeaderCell>Remove Listing</Table.HeaderCell>
+                        </Table.Row>
+                    {this.state.list.map(event => {
+                            return(
+                            <Table.Row>
+                                <Table.Cell>{event.name}</Table.Cell>
+                                <Table.Cell>{event.month}</Table.Cell>
+                                <Table.Cell>{event.date}</Table.Cell>
+                                <Table.Cell>{event.type}</Table.Cell>
+                                <Table.Cell>{event.description}</Table.Cell>
+                                <Table.Cell>{event.address}</Table.Cell>
+                                <Table.Cell>{event.username}</Table.Cell>
+                                <Table.Cell>
+                                    <Button floated="right" onClick={() => {
+                                        axios.delete('http://localhost:5000/events/' + event._id)
+                                        .then(res => console.log(res.data));
+                                        alert('Event ' + event.name + " has been deleted!");
+                                        window.location.reload();
+                                    }}>Remove</Button>
+                                </Table.Cell>
+                            </Table.Row>)
+                    })}
+                    </Table>
+                </Container>
+                }
         </div>
         );
     }

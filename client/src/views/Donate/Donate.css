@@ -1,3 +1,7 @@
+.top-paragraph {
+  text-align: center;
+  margin-top: 50px;
+}
 #donate-text {
   text-align: center;
   margin-left: 25%;
@@ -5,10 +9,6 @@
   margin-top: 5%;
   margin-bottom: 10px;
   font-size: 20px;
-}
-#donate-text-button {
-  margin-left: 46%;
-  margin-bottom: 10px;
 }
 
 .donate-button {
@@ -30,9 +30,4 @@
   background-color: #a8b6e3;
   text-decoration: none;
   color: white;
-}
-
-#donate-link-button {
-  margin-left: 46%;
-  margin-top: 20px;
 }
