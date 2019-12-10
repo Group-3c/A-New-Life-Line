@@ -20,7 +20,7 @@ export default class CommentList extends Component{
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/posts/comment/'+ this.props.match.params.id)
+    axios.get('https://new-life-line.herokuapp.com//posts/comment/'+ this.props.match.params.id)
       .then(response => {
         this.setState({comments: response.data})
       })
@@ -28,7 +28,7 @@ export default class CommentList extends Component{
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/posts/' + this.props.match.params.id)
+    axios.get('https://new-life-line.herokuapp.com//posts/' + this.props.match.params.id)
     .then(response => {
       this.setState({posts: response.data})
     })

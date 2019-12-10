@@ -25,7 +25,7 @@ export default class PostList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/posts/')
+    axios.get('https://new-life-line.herokuapp.com//posts/')
       .then(response => {
         this.setState({posts: response.data})
       })
@@ -39,12 +39,12 @@ export default class PostList extends Component {
     console.log("ID value in delete function is: ");
     console.log(id);
 
-    axios.delete('http://localhost:5000/posts/' + id)
+    axios.delete('https://new-life-line.herokuapp.com//posts/' + id)
       .then(res => console.log(res.data));
     this.setState({
       posts: this.state.posts.filter(el => el._id !== id)
     })
-    axios.delete('http://localhost:5000/posts/comment/' + id)
+    axios.delete('https://new-life-line.herokuapp.com//posts/comment/' + id)
   }
 
   postList() {

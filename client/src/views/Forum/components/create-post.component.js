@@ -44,7 +44,7 @@ export default class CreatePost extends Component {
 
     console.log(post)
 
-    axios.post('http://localhost:5000/posts/new-post', post)
+    axios.post('https://new-life-line.herokuapp.com//posts/new-post', post)
       .then(res => console.log(res.data))
 
 

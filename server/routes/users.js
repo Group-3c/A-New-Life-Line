@@ -14,7 +14,7 @@ router.get('/login', function(req, res){
 });
 
 //returns list of users for admin profile page
-router.get('/list', function(req, res){
+router.post('/list', function(req, res){
     User.find({}, function(err, users) {
         var userArray = [];
 

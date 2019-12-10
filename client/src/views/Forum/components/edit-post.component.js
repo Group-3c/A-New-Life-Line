@@ -28,7 +28,7 @@ export default class EditPost extends Component {
 
     console.log(post);
 
-    axios.post('http://localhost:5000/posts/update/' + this.props.match.params.id, post)
+    axios.post('https://new-life-line.herokuapp.com//posts/update/' + this.props.match.params.id, post)
       .then(res => console.log(res.data));
 
     window.location = '/Forum';
