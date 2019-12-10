@@ -29,7 +29,7 @@ class EducationalOpportunities extends React.Component {
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      await axios.get('http://localhost:5000/adminText/5ded23d86e6e5a2d10f00ae5')
+      await axios.get('https://new-life-line.herokuapp.com/adminText/5ded23d86e6e5a2d10f00ae5')
         .then(response => {
           this.setState({
             text: response.data.text
@@ -72,7 +72,7 @@ class EducationalOpportunities extends React.Component {
 
     console.log(adminText);
 
-    axios.post('http://localhost:5000/adminText/update/5ded23d86e6e5a2d10f00ae5', adminText)
+    axios.post('https://new-life-line.herokuapp.com/adminText/update/5ded23d86e6e5a2d10f00ae5', adminText)
       .then(res => console.log(res.data));
 
     this.hideForm();

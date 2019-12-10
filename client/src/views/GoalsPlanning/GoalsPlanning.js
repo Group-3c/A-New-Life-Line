@@ -29,7 +29,7 @@ class GoalsPlanning extends React.Component{
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      await axios.get('http://localhost:5000/adminText/5ded23cc6e6e5a2d10f00ae4')
+      await axios.get('https://new-life-line.herokuapp.com/adminText/5ded23cc6e6e5a2d10f00ae4')
         .then(response => {
           this.setState({
             text: response.data.text
@@ -72,7 +72,7 @@ class GoalsPlanning extends React.Component{
 
     console.log(adminText);
 
-    axios.post('http://localhost:5000/adminText/update/5ded23cc6e6e5a2d10f00ae4', adminText)
+    axios.post('https://new-life-line.herokuapp.com/adminText/update/5ded23cc6e6e5a2d10f00ae4', adminText)
       .then(res => console.log(res.data));
 
     this.hideForm();

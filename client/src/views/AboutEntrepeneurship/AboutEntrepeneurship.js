@@ -29,7 +29,7 @@ class AboutEntrepeneurship extends React.Component {
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      await axios.get('http://localhost:5000/adminText/5dea7a8ef8c61e727003ea5d')
+      await axios.get('https://new-life-line.herokuapp.com/adminText/5dea7a8ef8c61e727003ea5d')
         .then(response => {
           this.setState({
             text: response.data.text
@@ -72,7 +72,7 @@ class AboutEntrepeneurship extends React.Component {
 
     console.log(adminText);
 
-    axios.post('http://localhost:5000/adminText/update/5dea7a8ef8c61e727003ea5d', adminText)
+    axios.post('https://new-life-line.herokuapp.com/adminText/update/5dea7a8ef8c61e727003ea5d', adminText)
       .then(res => console.log(res.data));
 
     this.hideForm();

@@ -34,7 +34,7 @@ class Footer extends React.Component {
   async componentDidMount() {
       await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-      await axios.get('https://new-life-line.herokuapp.com//adminText/5ded0873b740ec7948abeb1c')
+      await axios.get('https://new-life-line.herokuapp.com/adminText/5ded0873b740ec7948abeb1c')
         .then(response => {
           this.setState({
             fbText: response.data.text
@@ -46,7 +46,7 @@ class Footer extends React.Component {
         })
 
 
-      await axios.get('https://new-life-line.herokuapp.com//adminText/5ded0888b740ec7948abeb1d')
+      await axios.get('https://new-life-line.herokuapp.com/adminText/5ded0888b740ec7948abeb1d')
         .then(response => {
           this.setState({
             liText: response.data.text
