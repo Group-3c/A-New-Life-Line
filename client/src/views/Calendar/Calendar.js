@@ -31,7 +31,7 @@ constructor(props) {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
         console.log(this.state.user)
 
-        await axios.get('https://new-life-line.herokuapp.com/events/list')
+        await axios.post('https://new-life-line.herokuapp.com/events/list')
             .then(res => this.setState({list:res.data}));
     }
 //on event submission, change values from '' to the field value submitted

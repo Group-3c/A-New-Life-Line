@@ -25,7 +25,7 @@ export default class PostList extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://new-life-line.herokuapp.com/posts/')
+    axios.post('https://new-life-line.herokuapp.com/posts/')
       .then(response => {
         this.setState({posts: response.data})
       })

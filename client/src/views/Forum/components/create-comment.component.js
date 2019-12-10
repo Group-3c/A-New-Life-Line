@@ -23,7 +23,7 @@ export default class CreateComment extends Component {
 
       console.log(this.state.user);
       console.log(this.props);
-      axios.get('https://new-life-line.herokuapp.com/posts/' + this.props.match.params.id)
+      axios.post('https://new-life-line.herokuapp.com/posts/' + this.props.match.params.id)
       .then(response => {
         this.setState({posts: response.data})
       })
