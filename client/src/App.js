@@ -45,8 +45,8 @@ const App = () => {
           <Route exact path="/">
             <Redirect to="/Start" />
           </Route>
+          {/*Below are protected routes*/}
           <AuthRoute>
-
             <Route exact path="/Home" component={Home} />
             <Route exact path="/MentorMeetings" component={MentorMeetings} />
             <Route exact path="/EducationalOpportunities" component={EducationalOpportunities} />

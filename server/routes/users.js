@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 let User = require('../models/users');
 
+//test functions
 router.get('/register', function(req, res){
     res.send({type: 'register'});
 });
@@ -12,6 +13,7 @@ router.get('/login', function(req, res){
     res.send({type: 'login'});
 });
 
+//returns list of users for admin profile page
 router.get('/list', function(req, res){
     User.find({}, function(err, users) {
         var userArray = [];
@@ -24,12 +26,16 @@ router.get('/list', function(req, res){
       });
 });
 
+//registers the user
 router.post('/register', async function(req, res){
+
+    //checks if email is valid
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
 
+    //checks if password satisfies conditions (listed later)
     function validatePassword(password) {
         var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,20}$/;
         return re.test(password);
@@ -46,6 +52,7 @@ router.post('/register', async function(req, res){
     const confirmPassword = req.body.confirmPassword;
     const permission = "user";
 
+    //self explanatory error codes
     if (name === '')
     {
         add = false;
@@ -89,6 +96,7 @@ router.post('/register', async function(req, res){
         errors.push("Passwords do not match");
     }
 
+    //waits for all validation before creating user
     await setTimeout(() => {
         if(add) {
             let newUser = new User({
@@ -113,18 +121,22 @@ router.post('/register', async function(req, res){
     
 });
 
+//logging the user in
 router.post('/login', function(req,res){
     const username = req.body.username;
     const password = req.body.password;
 
     let query = {username:username};
     let token = '';
+
+    //self explanatory verification
     User.findOne(query, function(err, user){
         if(err) throw err;
         if(!user){
             res.send({message: 'No user found'});
         } else {
             if (password === user.password){
+                //keeps user logegd in for 1 hour
                 token = jwt.sign({user:user}, "SECRET", {expiresIn: "1h"});
                 res.send({message: 'Login', token: token});
             } else {
@@ -135,12 +147,14 @@ router.post('/login', function(req,res){
       });
 });
 
+//admin can change user permissions
 router.post('/permission', async function(req,res){
     const username = req.body.username;
     const currPerm = req.body.permission;
 
     let query = {username:username};
 
+    //switches the user permissions
     if (currPerm === 'user') {
         let updateUser = await User.findOneAndUpdate(query, {permission : 'mentor'}, {new: true, upsert: true});
         res.send({message: 'mentor'});

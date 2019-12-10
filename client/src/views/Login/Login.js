@@ -18,7 +18,7 @@ class Login extends React.Component{
     }
 
     componentDidMount(){
-
+        //check to see if someone is logged in, if so, send to homepage
         try {
             if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
                 this.props.history.push('/Home');
@@ -29,6 +29,7 @@ class Login extends React.Component{
         }
     }
 
+    //for login form
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value});
     }
@@ -41,6 +42,7 @@ class Login extends React.Component{
             password: this.state.password
         }
 
+        
         axios.post('http://localhost:5000/users/login', user)
             .then(res => {
                 if (res.data.message === "Login")
