@@ -2,7 +2,7 @@ const router = require('express').Router();
 let AdminText = require('../models/adminText.model');
 
 //first route that handles http get requests on the /adminText url path
-router.route('/').get((req, res) => {
+router.route('/').post((req, res) => {
   //mongoose method that gives list of all text fields from database in JSON format
   AdminText.find()
     .then(texts => res.json(texts))
@@ -21,7 +21,7 @@ router.route('/add').post((req, res) => {
 });
 
 //returns information about a specific text field, given an id (created by MongoDB)
-router.route('/:id').get((req, res) => {
+router.route('/:id').post((req, res) => {
   AdminText.findById(req.params.id)
     .then(text => res.json(text))
     .catch(err => res.status(400).json('Error: ' + err));
