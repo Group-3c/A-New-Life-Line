@@ -49,7 +49,7 @@ class AboutPageEdit extends React.Component {
 
     console.log(adminText);
 
-    axios.post('http://localhost:5000/adminText/update/'+this.props.match.params.id, adminText)
+    axios.post('https://new-life-line.herokuapp.com/adminText/update/'+this.props.match.params.id, adminText)
       .then(res => console.log(res.data));
 
     this.hideForm();

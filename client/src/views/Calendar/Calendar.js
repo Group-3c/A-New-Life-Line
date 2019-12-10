@@ -31,7 +31,7 @@ constructor(props) {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
         console.log(this.state.user)
 
-        await axios.get('https://new-life-line.herokuapp.com//events/list')
+        await axios.get('https://new-life-line.herokuapp.com/events/list')
             .then(res => this.setState({list:res.data}));
     }
 //on event submission, change values from '' to the field value submitted
@@ -62,7 +62,7 @@ handleSubmit(event) {
         address: this.state.address,
         username: this.state.user.username
     }
-    axios.post('https://new-life-line.herokuapp.com//events/new-event', Event)
+    axios.post('https://new-life-line.herokuapp.com/events/new-event', Event)
         .then(res => console.log(res.data))
 }
 
@@ -178,7 +178,7 @@ handleSubmit(event) {
                                 <Table.Cell>{event.username}</Table.Cell>
                                 <Table.Cell>
                                     <Button floated="right" onClick={() => {
-                                        axios.delete('https://new-life-line.herokuapp.com//events/' + event._id)
+                                        axios.delete('https://new-life-line.herokuapp.com/events/' + event._id)
                                         .then(res => console.log(res.data));
                                         alert('Event ' + event.name + " has been deleted!");
                                         window.location.reload();

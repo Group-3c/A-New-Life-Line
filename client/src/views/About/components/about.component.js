@@ -24,7 +24,7 @@ class AboutPage extends React.Component {
       if (localStorage.getItem('jwtoken') && jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user) {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
-        await axios.get('http://localhost:5000/adminText/'+this.props.match.params.id)
+        await axios.get('https://new-life-line.herokuapp.com/adminText/'+this.props.match.params.id)
           .then(response => {
             this.setState({
               text: response.data.text

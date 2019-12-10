@@ -47,7 +47,7 @@ class Register extends React.Component{
         }
 
         //connects to database to add new user
-        axios.post('https://new-life-line.herokuapp.com//users/register', user)
+        axios.post('https://new-life-line.herokuapp.com/users/register', user)
             .then(res => {
                 if (res.data === "Added")
                 {
