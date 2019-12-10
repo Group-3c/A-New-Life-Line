@@ -21,7 +21,7 @@ class Profile extends React.Component {
         await this.setState({user:jwt.verify(localStorage.getItem('jwtoken'), "SECRET").user});
 
         //returns the list of all users for if admin is logged in
-        await axios.get('http://localhost:5000/users/list')
+        await axios.get('https://new-life-line.herokuapp.com/users/list')
             .then(res => this.setState({list:res.data}));
     }
 
@@ -86,7 +86,7 @@ class Profile extends React.Component {
                                     {account.permission}
                                     <Button floated="right" onClick={() => {
                                         //function for admin to change permissions
-                                        axios.post('http://localhost:5000/users/permission', {
+                                        axios.post('https://new-life-line.herokuapp.com/users/permission', {
                                             username:account.username,
                                             permission:account.permission
                                         })
