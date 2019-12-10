@@ -69,7 +69,7 @@ export default class CommentList extends Component{
         return <Comment comment={currentComment} deleteComment={this.deleteComment} key={currentComment._id}/>
       }
       else {
-        return <Comment2 post={currentComment} key={currentComment._id}/>;
+        return <Comment2 comment={currentComment} key={currentComment._id}/>;
       }
     })
   }
