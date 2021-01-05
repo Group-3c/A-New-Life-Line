@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://a-new-life-line-client.herokuapp.com/",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "http-proxy-middleware": "^0.20.0",
     "jQuery": "npm:jquery@^3.4.1",
